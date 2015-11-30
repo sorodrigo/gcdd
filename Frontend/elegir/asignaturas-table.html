@@ -1,0 +1,57 @@
+<div class="pure-g" ng-repeat="asignatura in curso.asignaturas">
+    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive" ng-class="$first ? 'tabla-head' : 'tabla-subhead'">
+        <li>Asignatura</li>
+        <li>Creditos Teoria</li>
+        <li>Creditos Practica</li>
+        <li class="grupos">Grupos Teoria</li>
+        <li class="grupos">Grupos Pr&aacute;ctica</li>
+    </ul>
+
+
+    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
+        <li>{{asignatura.nombre}}</li>
+        <li>{{asignatura.creditosT}}</li>
+        <li>{{asignatura.creditosP}}</li>
+        <li>
+            Grupos Regulares:
+            <div class="caja-celda">
+                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('T', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-minus"></span></button>
+                <h3 class="numero-grupos">{{asignatura.gruposT}}</h3>
+                <button type="button" class="btn boton-celda"
+                        ng-click="elegir.grupoMas('T', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-plus"></span></button>
+            </div>
+            <br>Grupos Ingles:
+            <div class="caja-celda">
+                <button type="button" class="btn boton-celda"
+                        ng-click="elegir.grupoMenos('TI', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-minus"></span></button>
+                <h3 class="numero-grupos">{{asignatura.gruposTI}}</h3>
+                <button type="button" class="btn boton-celda"
+                        ng-click="elegir.grupoMas('TI', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </li>
+        <li>
+            Grupos Regulares:
+            <div class="caja-celda">
+                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('P', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-minus"></span></button>
+                <h3 class="numero-grupos">{{asignatura.gruposP}}</h3>
+                <button type="button" class="btn boton-celda"
+                        ng-click="elegir.grupoMas('P', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-plus"></span></button>
+            </div>
+            <br>Grupos Ingles:
+            <div class="caja-celda">
+                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('PI',$parent.$index, $index)"><span
+                        class="glyphicon glyphicon-minus"></span></button>
+                <h3 class="numero-grupos">{{asignatura.gruposPI}}</h3>
+                <button type="button" class="btn boton-celda"
+                        ng-click="elegir.grupoMas('PI', $parent.$index, $index)"><span
+                        class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,67 @@
+<div class="pure-g">
+    <div class="pure-u-1-5 text-center">
+        <h4 class="app-content-text"><a href="#/asignar" class="btn btn-default"><span
+                class="glyphicon glyphicon-chevron-left">Atr&aacute;s</span></a></h4>
+    </div>
+</div>
+<div class="pure-g">
+    <div class="pure-u-1 text-center">
+        <h2 class="app-content-text">{{grupo.asignatura}}</h2>
+
+        <h3 class="app-content-text">{{grupo.titulacion}}</h3>
+    </div>
+
+    <div class="pure-u-1-2 text-center">
+        <h4 class="app-content-text">Grupos {{grupo.tipo}}: </h4>
+    </div>
+
+    <div class="pure-u-1-2 text-center">
+        <button type="button" class="btn btn-default app-content-text" ng-click="grupo.agregar()">Agregar <span
+                class="glyphicon glyphicon-plus"></span></button>
+        <button type="button" class="btn btn-success app-content-text" ng-show="grupo.cambios">Guardar</button>
+    </div>
+</div>
+<hr>
+
+<uib-accordion close-others="true">
+    <div class="pure-g">
+        <div class="pure-u-17-24 container-fluid" ng-repeat="profesor in grupo.elecciones track by $index">
+            <div class="text-center">
+                <uib-accordion-group is-open="false">
+                    <uib-accordion-heading>
+                        <div ng-if="profesor.nombre != ''">
+                            {{profesor.nombre + " " + profesor.apellidos}}
+
+                            <!-- Bug de la liberia AngularUI para prevenirlo se utiliza $event.stopPropagation(); $event.preventDefault(); -->
+                            <button type="button" class="btn-eliminar pull-right"
+                                    ng-click="$event.stopPropagation(); $event.preventDefault(); grupo.eliminar(profesor)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+
+                        </div>
+                        <div ng-if="profesor.nombre == ''">
+                            <input id="agregar-profesor" type="text" placeholder="Agregar Nuevo Profesor"
+                                   ng-model="grupo.seleccionar"
+                                   uib-typeahead="profesor.nombre + ' ' + profesor.apellidos for profesor in grupo.profesores | filter:$viewValue | limitTo:8"
+                                   typeahead-on-select='grupo.seleccionado($item, $model, $label, profesor)'>
+
+                            <!-- Bug de la liberia AngularUI para prevenirlo se utiliza $event.stopPropagation(); $event.preventDefault(); -->
+                            <button type="button" class="btn-eliminar pull-right"
+                                    ng-click="$event.stopPropagation(); $event.preventDefault(); grupo.eliminar(profesor)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+
+                        </div>
+                    </uib-accordion-heading>
+                    <p class="app-content-text">
+                        Prioridad: {{profesor.categoria.orden}}
+                        <br>
+                        {{profesor.categoria.categoria}}
+                        <br>
+                        Dedicacion: {{profesor.dedicacion}}
+                    </p>
+                </uib-accordion-group>
+            </div>
+        </div>
+    </div>
+</uib-accordion>

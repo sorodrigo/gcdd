@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="modificar.close()">&times;</button>
+    <h4 class="modal-title text-center">Editar <span class="glyphicon glyphicon-edit"></span></h4>
+</div>
+<div class="modal-body">
+    <h4>Modificar Correo</h4>
+    <label for="correo">Correo Actual</label>
+    <input id="correo" name="correo" class="form-control" type="text" value="{{modificar.profesor.correo}}" readonly>
+    <br>
+    <label for="newCorreo">Nuevo Correo</label>
+    <input id="newCorreo" name="newCorreo" class="form-control" type="text" placeholder="Correo" ng-model="modificar.correo">
+    <br>
+    <h4>Modificar Password</h4>
+    <label for="password">Password Actual</label>
+    <input id="password" name="password" class="form-control" type="password" placeholder="Password Actual" ng-model="modificar.password">
+    <br>
+    <label for="newPassword">Nueva Password</label>
+    <input id="newPassword" name="newPassword" class="form-control" type="password" placeholder="Nueva Password" ng-model="modificar.newPassword">
+    <br>
+    <label for="newPassword2">Repetir</label>
+    <input id="newPassword2" name="newPassword2" class="form-control" type="password" placeholder="Repetir Nueva Password" ng-model="modificar.newPassword2">
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="modificar.guardar()">Guardar</button>
+</div>

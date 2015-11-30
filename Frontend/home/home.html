@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGD</title>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../tema.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="../app.js"></script>
+</head>
+<body ng-app="Home">
+
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="LoginCtrl as login">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand header" href="#">Sistema de Gesti&oacute;n de Carga Docente</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href ng-click="login.modalLogin()">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="splash-container">
+    <div class="splash">
+        <h3 class="splash-subhead">Bienvenido!<br>El periodo de elecci&oacute;n abrir&aacute; el d&iacute;a:</h3>
+
+        <h1 class="splash-head">
+            dd/mm/yyyy.
+        </h1>
+
+        <p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head text-center">Simplifica la asignaci&oacute;n docente.</h2>
+
+        <div class="pure-g">
+
+            <div class="l-box pure-u-1 pure-u-md-1-3">
+                <h3 class="content-subhead">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    Revisa
+                </h3>
+
+                <p>Accede a la aplicaci&oacute;n y revisa el desglose de t&uacute; CARGA DOCENTE.</p>
+            </div>
+
+            <div class="l-box pure-u-1 pure-u-md-1-3">
+                <h3 class="content-subhead">
+                    <span class="glyphicon glyphicon-check"></span>
+                    Elige
+                </h3>
+
+                <p>De todas las titulaciones disponibles elige los grupos te&oacute;ricos y pr&aacute;cticos que deseas
+                    IMPARTIR.</p>
+            </div>
+
+            <div class="l-box pure-u-1 pure-u-md-1-3">
+                <h3 class="content-subhead">
+                    <span class="glyphicon glyphicon-record"></span>
+                    Obt&eacute;n
+                </h3>
+
+                <p>Al finalizar el plazo de elecci&oacute;n obt&eacute;n los resultados directamente en tu EMAIL.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg text-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img class="pure-img-responsive" width="300" src="https://pbs.twimg.com/profile_images/507460140052664321/SipzNgFF.png">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Sistema de Gesti&oacute;n Docente.</h2>
+
+            <p>
+                El Sistema de Gesti&oacute;n Docente es un proyecto desarrollado en la Escuela T&eacute;cnica Superior de Ingenier&iacute;a
+                de Sistemas Inform&aacute;ticos como proyecto fin de grado de la titulaci&oacute;n Ingenier&iacute;a en Software.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer l-box text-center">
+       Desarrollado por Rodrigo SM.
+    </div>
+</div>
+
+</body>
+</html>

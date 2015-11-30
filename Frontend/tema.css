@@ -1,0 +1,518 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * -- NAVIGATION BAR --
+ *
+ */
+.navbar-default {
+    background: lightgreen;
+    border: transparent;
+}
+
+.header a {
+    font-weight: 400;
+    font-size: 100%;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+    background: lightblue;
+    border: none;
+    color: white;
+}
+
+/*
+ * -- SPLASH --
+ *
+ */
+.splash-container {
+    background: #1f8dd6;
+    z-index: 1;
+    overflow: hidden;
+    /*"scroll-over" effect */
+    width: 100%;
+    height: 88%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
+
+.splash {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.splash-head {
+
+    color: firebrick;
+    border: 6px solid lightblue;
+    padding: 1em 1.6em;
+    font-weight: 200;
+    border-radius: 5px;
+    line-height: 1em;
+    background: white;
+}
+
+.splash-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/*
+ * -- CONTENT --
+ *
+ */
+.content-wrapper {
+    /* "scroll-over" effect */
+    position: absolute;
+    top: 87%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+.content-head-ribbon {
+    color: white;
+}
+
+.content-subhead span {
+    color: #1f8dd6;
+    margin-right: 7px;
+}
+
+/* DARK SECTION */
+.ribbon {
+    background: #2d3e60;
+    color: #aaa;
+}
+
+/* FOOTER */
+.footer {
+    background: #111;
+    color: white;
+}
+
+/*
+ * --APP CONTENT --
+ *
+ */
+.app-content-wrapper {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+.app-content-head-button {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 auto;
+    -webkit-border-radius: 40em;
+    -moz-border-radius: 40em;
+    border-radius: 40em;
+    background: white;
+    border: solid black 0.15em;
+    display: block;
+
+}
+
+.app-content-text {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+
+.app-content-text-subhead {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    color: gray;
+    opacity: 0.8;
+    font-size: 70%;
+    display: inline-block;
+}
+
+.app-content-textbox {
+    border: solid black 0.15em;
+    background: white;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    margin: auto;
+    overflow: scroll;
+}
+
+.app-content-textbox-big {
+    border: solid black 0.15em;
+    background: white;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    margin: auto;
+}
+
+.ellipsis {
+    background: transparent;
+    padding: 0;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    border: 0;
+}
+
+#modificar-perfil {
+    position: relative;
+}
+
+.btn-group a {
+    display: inline-block;
+}
+
+.separator {
+    padding: 1em;
+}
+
+.text-red {
+    color: darkred;
+}
+
+.text-green {
+    color: darkgreen;
+}
+
+/* PANEL */
+
+.panel-heading a {
+    text-decoration: none;
+}
+
+.creditos-header {
+    color: mediumblue;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.numero-grupos {
+    text-align: center;
+    display: inline;
+    color: mediumblue;
+    opacity: 0.7;
+}
+
+.caja-celda {
+    background-color: transparent;
+    border: 0;
+    border-spacing: 0em;
+
+}
+
+.boton-celda {
+
+    -webkit-border-radius: 40em;
+    -moz-border-radius: 40em;
+    border-radius: 40em;
+    border: 0;
+    border-spacing: 0;
+    margin: 0.25em;
+    padding: 0;
+    background-color: transparent;
+}
+
+.tabla-head {
+    font-weight: 600;
+    background-color: rgba(212, 212, 212, 0.5);
+}
+
+.tabla-subhead {
+    font-weight: 600;
+    background-color: rgba(212, 212, 212, 0.5);
+}
+
+.fila-responsive {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+
+}
+
+.fila-responsive li {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    min-height: 3em;
+    border-bottom: rgba(212, 212, 212, 0.5) solid 2px;
+    vertical-align: baseline;
+    text-align: left;
+}
+
+.celda-amarilla {
+    background: rgba(255, 255, 0, 0.5);
+}
+
+.celda-roja {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+/* ASIGNAR */
+
+.glyphicon.glyphicon-search {
+    color: rgba(212, 212, 212, 0.7);
+    border-right: solid 1px rgb(212, 212, 212);
+    font-size: 200%;
+    padding: 0.25em;
+}
+
+.search-bar {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    border: solid 1px rgba(212, 212, 212, 0.7);
+    width: 40%;
+    position: relative;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+.search-bar > input, .search-bar > input:focus {
+    border: 0;
+    width: 90%;
+    font-size: 100%;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    outline: 0;
+    padding: 1em;
+
+}
+
+.btn.asignar, .btn.asignar:focus {
+    border-radius: 40em;
+    -webkit-border-radius: 40em;
+    -moz-border-radius: 40em;
+    background: transparent;
+    outline: 0;
+    font-size: 120%;
+    padding: 0;
+    height: 1.2em;
+    margin-left: 1em;
+}
+
+.glyphicon.glyphicon-info-sign:hover {
+    color: rgba(0, 0, 255, 0.7);
+}
+
+.btn-navegacion {
+    color: black;
+}
+
+.btn-eliminar {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+}
+
+.glyphicon.glyphicon-remove:hover {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+#agregar-profesor {
+    width: 50%;
+    text-align: center;
+}
+
+/* Responsive Smartphones */
+
+/* LANDSCAPE */
+@media (max-width: 47.9em) and (orientation: portrait) {
+    .app-content-wrapper {
+        top: 50%;
+    }
+
+    .fila-responsive {
+        display: inline-block;
+    }
+
+    .fila-responsive li {
+        width: 100%;
+    }
+
+    .app-content-textbox {
+        width: 100%
+    }
+
+    .grupos {
+        height: 9em;
+    }
+
+    #search-head {
+        display: none;
+    }
+
+    .search-bar > input, .search-bar > input:focus {
+        font-size: 80%;
+    }
+}
+
+/* PORTRAIT */
+@media (max-width: 47.9em) and (orientation: landscape) {
+    .app-content-wrapper {
+        top: 65%;
+    }
+
+    .fila-responsive {
+        display: block;
+    }
+
+    .fila-responsive li {
+        width: 100%;
+    }
+
+    .app-content-textbox {
+        width: 100%
+    }
+
+    .grupos {
+        height: 9em;
+    }
+
+    #search-head {
+        display: none;
+    }
+
+    .search-bar > input, .search-bar > input:focus {
+        font-size: 80%;
+    }
+}
+
+/* Responsive Tablets and Desktops */
+@media (min-width: 48em) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 1em;
+    }
+
+    .home-menu {
+        text-align: left;
+    }
+
+    .home-menu ul {
+        float: right;
+    }
+
+    /* We increase the height of the splash-container */
+    .splash-container {
+        height: 500px;
+    }
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+    .fila-responsive.tabla-subhead {
+        display: none;
+    }
+
+    .fila-responsive {
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        margin-bottom: 0;
+    }
+
+    .fila-responsive li {
+        width: 20%;
+    }
+
+    .grupos {
+        height: 3em;
+    }
+
+    .app-content-textbox-big {
+        font-size: 110%;
+    }
+
+}
+
+/* Responsive Desktop */
+
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 300%;
+    }
+
+    .fila-responsive.tabla-subhead {
+        display: none;
+    }
+
+    .fila-responsive {
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        margin-bottom: 0;
+    }
+
+    .fila-responsive li {
+        width: 20%;
+    }
+
+    .app-content-textbox {
+        width: 100%
+    }
+
+}

@@ -1,0 +1,46 @@
+<!-- ASIGNAR -->
+
+<br>
+<div class="text-center">
+    <div class="search-bar">
+        <span class="glyphicon glyphicon-search"></span>
+        <input type="text" placeholder="Buscar (Asignatura, Titulaci&oacute;n)" ng-model="query">
+    </div>
+</div>
+<br>
+<ul id="search-head" class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head">
+    <li>Asignatura</li>
+    <li>Año</li>
+    <li>Titulaci&oacute;n</li>
+    <li>Grupos Teor&iacute;a</li>
+    <li>Grupos Pr&aacute;ctica</li>
+</ul>
+<div ng-repeat="(key, curso) in asignar.cursos">
+    <div ng-repeat="ano in curso">
+        <div class="pure-g container-fluid" ng-repeat="asignatura in ano.asignaturas"
+             ng-show="(([asignatura] | filter:{nombre: query}).length > 0) || (([key] | filter: query).length > 0)">
+
+            <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
+                <li>Asignatura</li>
+                <li>Año</li>
+                <li>Titulaci&oacute;n</li>
+                <li>Grupos Teor&iacute;a</li>
+                <li>Grupos Pr&aacute;ctica</li>
+            </ul>
+
+            <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
+                <li>{{asignatura.nombre}}</li>
+                <li>{{ano.ano}}</li>
+                <li>{{key}}</li>
+                <li ng-class="asignar.estadoGrupo(key, $parent.$index, $index)">
+                    {{asignatura.gruposT + asignatura.gruposTI}} / {{asignatura.num_grupos}}
+                    <a class="btn asignar" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/T" ng-if="asignatura.num_grupos > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </li>
+                <li ng-class="asignar.estadoDesdoble(key, $parent.$index, $index)">
+                    {{asignatura.gruposP + asignatura.gruposPI}} / {{asignatura.num_desdobles}}
+                    <a class="btn asignar" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/P" ng-if="asignatura.num_desdobles > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

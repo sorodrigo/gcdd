@@ -1,0 +1,124 @@
+<!-- PERFIL -->
+
+<div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-3 separator">
+        <h1 class="text-center"><span class="glyphicon glyphicon-user"></span></h1>
+
+        <h2 class="text-center app-content-text"> Perfil de Usuario</h2>
+
+        <div class="app-content-textbox">
+
+
+            <div class="text-right">
+                <div class="btn-group" uib-dropdown>
+                    <button id="single-button" type="button" class="ellipsis" uib-dropdown-toggle><span
+                            class="glyphicon glyphicon-option-horizontal"></span></button>
+                    <ul class="uib-dropdown-menu" id="modificar-perfil" aria-labelledby="single-button">
+                        <li>
+                            <a href ng-click="perfil.modificar()">Modificar Correo/Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Nombre</span>{{perfil.profesor.nombre}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Apellidos</span>{{perfil.profesor.apellidos}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Correo</span>{{perfil.profesor.correo}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Titulaci&oacute;n</span>{{perfil.profesor.titulacion}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Categor&iacute;a</span>{{perfil.profesor.categoria}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Dedicaci&oacute;n</span>{{perfil.profesor.dedicacion}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Doctor</span>{{perfil.profesor.doctor}}
+            </p>
+
+            <p class="app-content-text"><span class="app-content-text-subhead">Despacho</span>{{perfil.profesor.despacho}}
+            </p>
+
+            <p class="app-content-text"><span
+                    class="app-content-text-subhead">Tel&eacute;fono</span>{{perfil.profesor.telefono}}</p>
+
+            <p class="app-content-text"><span
+                    class="app-content-text-subhead">Fecha de Alta</span>{{perfil.profesor.fecha_alta}}
+            </p>
+
+            <p class="app-content-text"><span
+                    class="app-content-text-subhead">Fecha de Posesi&oacute;n</span>{{perfil.profesor.fecha_posesion}}
+            </p>
+        </div>
+
+    </div>
+    <div class="pure-u-1 pure-u-lg-2-3 separator">
+
+        <h1 class="text-center"><span class="glyphicon glyphicon-dashboard"></span></h1>
+
+        <h2 class="text-center app-content-text"> Carga Docente</h2>
+
+        <div class="app-content-textbox-big">
+            <div class="pure-g">
+                <div class="pure-u-sm-1 pure-u-md-1-2">
+                    <br>
+
+                    <p class="app-content-text"><span class="app-content-text-subhead">Previsi&oacute;n</span><span
+                            class="text-red">{{perfil.profesor.carga.prevision}}
+                        cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span
+                            class="app-content-text-subhead">Proyectos de Innovaci&oacute;n</span><span
+                            class="text-green">{{perfil.profesor.carga.proyectosInnovacion}}
+                        cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span
+                            class="app-content-text-subhead">Pr&aacute;cticas Profesionales</span><span
+                            class="text-green">{{perfil.profesor.carga.practicasProfesionales}}
+                        cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span class="app-content-text-subhead">Trabajos Finales</span><span
+                            class="text-green">{{perfil.profesor.carga.trabajosFinales}}
+                        cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span class="app-content-text-subhead">Cargo</span><span
+                            class="text-green">{{perfil.profesor.carga.cargo}}
+                        cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span
+                            class="app-content-text-subhead">Sexenio Activo</span><span
+                            ng-class="perfil.profesor.carga.sexenioActivo ? 'text-green' : 'text-red'">{{perfil.profesor.carga.sexenioActivo}}</span>
+                    </p>
+                    <br>
+
+                    <p class="app-content-text"><span
+                            class="app-content-text-subhead">Total a Elegir</span><span>{{perfil.cargaTotal()}} cr&eacute;ditos</span>
+                    </p>
+
+                    <p class="app-content-text"><span
+                            class="app-content-text-subhead">Cr&eacute;ditos Elegidos</span><span>6 cr&eacute;ditos</span>
+                    </p>
+                </div>
+
+                <div class="pure-u-sm-1 pure-u-md-1-2" ng-controller="DonutGraficoCtrl as donut">
+                    <br>
+                    <div tooltip-placement="top" uib-tooltip="Prueba a hacer click en las leyendas o doble click en el diagrama ;-)" ng-dblclick="donut.donutToPie()">
+                        <nvd3 options="donut.options" data="donut.data"></nvd3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
