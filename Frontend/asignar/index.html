@@ -12,6 +12,7 @@
     <li>Asignatura</li>
     <li>Año</li>
     <li>Titulaci&oacute;n</li>
+    <li>Nº Alumnos</li>
     <li>Grupos Teor&iacute;a</li>
     <li>Grupos Pr&aacute;ctica</li>
 </ul>
@@ -24,6 +25,7 @@
                 <li>Asignatura</li>
                 <li>Año</li>
                 <li>Titulaci&oacute;n</li>
+                <li>Nº Alumnos</li>
                 <li>Grupos Teor&iacute;a</li>
                 <li>Grupos Pr&aacute;ctica</li>
             </ul>
@@ -32,6 +34,7 @@
                 <li>{{asignatura.nombre}}</li>
                 <li>{{ano.ano}}</li>
                 <li>{{key}}</li>
+                <li>{{asignatura.num_alumnos}}</li>
                 <li ng-class="asignar.estadoGrupo(key, $parent.$index, $index)">
                     {{asignatura.gruposT + asignatura.gruposTI}} / {{asignatura.num_grupos}}
                     <a class="btn asignar" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/T" ng-if="asignatura.num_grupos > 0"><span class="glyphicon glyphicon-info-sign"></span></a>

@@ -13,44 +13,53 @@
         <li>{{asignatura.creditosT}}</li>
         <li>{{asignatura.creditosP}}</li>
         <li>
-            Grupos Regulares:
-            <div class="caja-celda">
-                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('T', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-minus"></span></button>
-                <h3 class="numero-grupos">{{asignatura.gruposT}}</h3>
-                <button type="button" class="btn boton-celda"
-                        ng-click="elegir.grupoMas('T', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-plus"></span></button>
-            </div>
-            <br>Grupos Ingles:
-            <div class="caja-celda">
-                <button type="button" class="btn boton-celda"
-                        ng-click="elegir.grupoMenos('TI', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-minus"></span></button>
-                <h3 class="numero-grupos">{{asignatura.gruposTI}}</h3>
-                <button type="button" class="btn boton-celda"
-                        ng-click="elegir.grupoMas('TI', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-plus"></span></button>
+            <div tooltip-placement="top"
+                 ng-attr-uib-tooltip="{{asignatura.creditosT == 0 ? 'No existen grupos te&oacute;ricos en esta asignatura.' : ''}}">
+                Grupos Regulares:
+                <div class="caja-celda">
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMenos('T', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-minus"></span></button>
+                    <h3 class="numero-grupos">{{asignatura.gruposT}}</h3>
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMas('T', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-plus"></span></button>
+                </div>
+                <br>Grupos Ingles:
+                <div class="caja-celda">
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMenos('TI', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-minus"></span></button>
+                    <h3 class="numero-grupos">{{asignatura.gruposTI}}</h3>
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMas('TI', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-plus"></span></button>
+                </div>
             </div>
         </li>
         <li>
-            Grupos Regulares:
-            <div class="caja-celda">
-                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('P', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-minus"></span></button>
-                <h3 class="numero-grupos">{{asignatura.gruposP}}</h3>
-                <button type="button" class="btn boton-celda"
-                        ng-click="elegir.grupoMas('P', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-plus"></span></button>
-            </div>
-            <br>Grupos Ingles:
-            <div class="caja-celda">
-                <button type="button" class="btn boton-celda" ng-click="elegir.grupoMenos('PI',$parent.$index, $index)"><span
-                        class="glyphicon glyphicon-minus"></span></button>
-                <h3 class="numero-grupos">{{asignatura.gruposPI}}</h3>
-                <button type="button" class="btn boton-celda"
-                        ng-click="elegir.grupoMas('PI', $parent.$index, $index)"><span
-                        class="glyphicon glyphicon-plus"></span></button>
+            <div tooltip-placement="top"
+                 ng-attr-uib-tooltip="{{asignatura.creditosP == 0 ? 'No existen grupos pr&aacute;cticos en esta asignatura.' : ''}}">
+                Grupos Regulares:
+                <div class="caja-celda">
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMenos('P', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-minus"></span></button>
+                    <h3 class="numero-grupos">{{asignatura.gruposP}}</h3>
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMas('P', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-plus"></span></button>
+                </div>
+                <br>Grupos Ingles:
+                <div class="caja-celda">
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMenos('PI',$parent.$index, $index)"><span
+                            class="glyphicon glyphicon-minus"></span></button>
+                    <h3 class="numero-grupos">{{asignatura.gruposPI}}</h3>
+                    <button type="button" class="btn boton-celda"
+                            ng-click="elegir.grupoMas('PI', $parent.$index, $index)"><span
+                            class="glyphicon glyphicon-plus"></span></button>
+                </div>
             </div>
         </li>
     </ul>

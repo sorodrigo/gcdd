@@ -392,6 +392,10 @@
     .search-bar > input, .search-bar > input:focus {
         font-size: 80%;
     }
+
+    .search-bar{
+        width: 80%;
+    }
 }
 
 /* PORTRAIT */
@@ -422,6 +426,9 @@
 
     .search-bar > input, .search-bar > input:focus {
         font-size: 80%;
+    }
+    .search-bar{
+        width: 80%;
     }
 }
 

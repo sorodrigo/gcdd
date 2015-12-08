@@ -177,9 +177,10 @@
                 var numCreditos = this.cursos[this.actual][ano]['asignaturas'][asignatura][creditos];
 
                 if (numCreditos > 0) {
-                    var numGrupos = this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo];
-                    numGrupos++;
-                    this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo] = numGrupos;
+                    var gruposElegidos = this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo];
+
+                    gruposElegidos++;
+                    this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo] = gruposElegidos;
 
                     this.getTotalAno(ano);
 
@@ -396,6 +397,7 @@
                                 gruposTI: 1,
                                 gruposP: 0,
                                 gruposPI: 0,
+                                num_alumnos: 100,
                                 num_grupos: 3,
                                 num_desdobles: 0
                             }
@@ -414,6 +416,7 @@
                                 gruposTI: 0,
                                 gruposP: 4,
                                 gruposPI: 0,
+                                num_alumnos: 100,
                                 num_grupos: 3,
                                 num_desdobles: 4
 
@@ -426,6 +429,7 @@
                                 gruposTI: 1,
                                 gruposP: 5,
                                 gruposPI: 0,
+                                num_alumnos: 80,
                                 num_grupos: 3,
                                 num_desdobles: 4
                             }
@@ -450,6 +454,7 @@
                                 gruposTI: 0,
                                 gruposP: 2,
                                 gruposPI: 0,
+                                num_alumnos: 60,
                                 num_grupos: 2,
                                 num_desdobles: 2
                             }
@@ -469,6 +474,7 @@
                                 gruposTI: 1,
                                 gruposP: 6,
                                 gruposPI: 0,
+                                num_alumnos: 30,
                                 num_grupos: 3,
                                 num_desdobles: 6
                             }
