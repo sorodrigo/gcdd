@@ -1,13 +1,13 @@
 <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" ng-click="modal.close()">&times;</button>
+    <button type="button" class="close" data-dismiss="modal" ng-click="modal.login.close()">&times;</button>
     <h4 class="modal-title text-center">Login <span class="glyphicon glyphicon-log-in"></span></h4>
 </div>
 <div class="modal-body">
-    <input id="correo" name="correo" class="form-control" type="text" placeholder="Correo" ng-model="modal.correo">
+    <input id="correo" name="correo" class="form-control" type="text" placeholder="Correo" ng-model="modal.login.correo">
     <br>
-    <input id="password" name="password" class="form-control" type="password" placeholder="Password" ng-model="modal.password">
+    <input id="password" name="password" class="form-control" type="password" placeholder="Password" ng-model="modal.login.password">
     <br>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="modal.login()">Login</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="modal.login.send()">Login</button>
 </div>

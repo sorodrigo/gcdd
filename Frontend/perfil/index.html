@@ -2,9 +2,9 @@
 
 <div class="pure-g">
     <div class="pure-u-1 pure-u-lg-1-3 separator">
-        <h1 class="text-center"><span class="glyphicon glyphicon-user"></span></h1>
+        <h2 class="text-center"><span class="glyphicon glyphicon-user"></span></h2>
 
-        <h2 class="text-center app-content-text"> Perfil de Usuario</h2>
+        <h3 class="text-center app-content-text"> Perfil de Usuario</h3>
 
         <div class="app-content-textbox">
 
@@ -60,9 +60,9 @@
     </div>
     <div class="pure-u-1 pure-u-lg-2-3 separator">
 
-        <h1 class="text-center"><span class="glyphicon glyphicon-dashboard"></span></h1>
+        <h2 class="text-center"><span class="glyphicon glyphicon-dashboard"></span></h2>
 
-        <h2 class="text-center app-content-text"> Carga Docente</h2>
+        <h3 class="text-center app-content-text"> Carga Docente</h3>
 
         <div class="app-content-textbox-big">
             <div class="pure-g">
@@ -111,10 +111,10 @@
                     </p>
                 </div>
 
-                <div class="pure-u-sm-1 pure-u-md-1-2" ng-controller="DonutGraficoCtrl as donut">
+                <div class="pure-u-sm-1 pure-u-md-1-2" ng-controller="PieGraficoCtrl as pie">
                     <br>
-                    <div tooltip-placement="top" uib-tooltip="Prueba a hacer click en las leyendas o doble click en el diagrama ;-)" ng-dblclick="donut.donutToPie()">
-                        <nvd3 options="donut.options" data="donut.data"></nvd3>
+                    <div tooltip-placement="top" uib-tooltip="Prueba a hacer click en las leyendas." ng-click="pie.donutToPie()">
+                        <nvd3 options="pie.options" data="pie.data"></nvd3>
                     </div>
                 </div>
 

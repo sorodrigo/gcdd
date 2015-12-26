@@ -30,6 +30,12 @@ angular.module('SGCD')
                 controllerAs: 'grupo'
             })
 
+            .when('/asignaturas', {
+                templateUrl: './gestionar/asignaturas.html',
+                controller: 'AsignaturasCtrl',
+                controllerAs: 'asignaturas'
+            })
+
             .when('/', {
                 templateUrl: './elegir/index.html',
                 controller: 'ElegirCtrl',

@@ -1,0 +1,11 @@
+<div class="btn-group" uib-dropdown>
+    <button id="single-button" class="btn app-content-head-button" type="button"
+            uib-dropdown-toggle>
+        {{actual}}
+        <span class="caret"></span></button>
+    <ul class="uib-dropdown-menu" aria-labelledby="single-button">
+        <li ng-repeat="opcion in data">
+            <a href ng-click="updateDropdown(opcion)">{{opcion}}</a>
+        </li>
+    </ul>
+</div>
