@@ -6,9 +6,9 @@
                                actual="asignaturas.actual"></dropdown-selector></h4>
     </div>
     <div class="pure-u-2-5">
-            <h4><button type="button" class="btn btn-default app-content-text" ng-click="grupo.agregar()">Agregar <span
+            <h4><button type="button" class="btn btn-default app-content-text" ng-click="asignaturas.agregar()">Agregar <span
                     class="glyphicon glyphicon-plus"></span></button>
-            <button type="button" class="btn btn-success app-content-text" ng-show="grupo.cambios">Guardar</button></h4>
+            <button type="button" class="btn btn-success app-content-text" ng-show="asignaturas.cambios">Guardar</button></h4>
     </div>
 </div>
 <div class="pure-g container-fluid">
@@ -45,5 +45,6 @@
             <li>{{asignatura.num_grupos}}</li>
             <li>{{(asignatura.creditosT + asignatura.creditosP) * asignatura.num_grupos}}</li>
         </ul>
+
     </div>
 </div>

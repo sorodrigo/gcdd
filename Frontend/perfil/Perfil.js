@@ -145,5 +145,5 @@
                 alert(this.correo + ' ' + this.newPassword);
                 $uibModalInstance.close();
             }
-        }])
+        }]);
 })();

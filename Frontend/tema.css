@@ -382,6 +382,12 @@ p.app-content-text{
     text-align: center;
 }
 
+.input-agregar-celda {
+
+    text-align: center;
+    margin-top: 0.5em;
+}
+
 /* Responsive Smartphones */
 
 /* LANDSCAPE */

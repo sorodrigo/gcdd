@@ -5,7 +5,7 @@
 (function () {
     angular.module('SGCD')
 
-        .controller('AsignaturasCtrl', [function () {
+        .controller('AsignaturasCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
 
             this.titulaciones = [
                 'Ingenieria Software',
@@ -120,6 +120,58 @@
                     }
                 ]
             };
+
+            var that = this;
+            this.agregar = function () {
+
+                var agregarModal = $uibModal.open({
+                    templateUrl: './gestionar/asignaturas/agregarView.html',
+                    controller: 'AgregarCtrl as agregar',
+                    size: 'lg'
+                });
+
+                agregarModal.result.then(function (agregado) {
+
+                    that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
+                    that.cambios = true;
+                });
+            };
+
+
+
+
+        }])
+
+        .controller('AgregarCtrl', ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+            this.asignatura = {
+                nombre: '',
+                    creditosT: 0,
+                    creditosP: 0,
+                    gruposT: 0,
+                    gruposTI: 0,
+                    gruposP: 0,
+                    gruposPI: 0,
+                    num_alumnos: 0,
+                    num_grupos: 0,
+                    num_desdobles: 0
+            };
+            this.ano = 0;
+
+            this.close = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+
+            this.guardar = function () {
+                $scope.result = {
+                    asignatura: this.asignatura,
+                    ano: this.ano - 1
+                };
+
+                $scope.result.ano >= 0 ?
+                    $uibModalInstance.close($scope.result)
+                    : alert();
+            }
 
         }]);
 })();

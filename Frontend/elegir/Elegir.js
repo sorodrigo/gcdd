@@ -131,13 +131,13 @@
                 else {
                     var creditos = 'creditos' + tipo;
                 }
-                var numCreditos = this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][creditos];
+                var numCreditos = this.cursos[this.actual][ano]['asignaturas'][asignatura][creditos];
 
                 if (numCreditos > 0) {
-                    var gruposElegidos = this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][grupo];
+                    var gruposElegidos = this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo];
 
                     gruposElegidos++;
-                    this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][grupo] = gruposElegidos;
+                    this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo] = gruposElegidos;
 
                     this.getTotalAno(ano);
 
@@ -148,12 +148,12 @@
             this.grupoMenos = function (tipo, ano, asignatura) {
 
                 var grupo = 'grupos' + tipo;
-                var numGrupos = this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][grupo];
+                var numGrupos = this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo];
                 numGrupos--;
 
                 //Si es menor que 0 se devuelve 0.
                 (numGrupos < 0) ? (this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][grupo] = 0)
-                    : this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'][asignatura][grupo] = numGrupos;
+                    : this.cursos[this.actual][ano]['asignaturas'][asignatura][grupo] = numGrupos;
 
                 this.getTotalAno(ano);
 
@@ -162,14 +162,14 @@
 
             this.getTotalAno = function (ano) {
                 var total = 0;
-                var asignaturas = this.cursos[this.dropdown.data[this.dropdown.actual]][ano]['asignaturas'];
+                var asignaturas = this.cursos[this.actual][ano]['asignaturas'];
                 for (a in asignaturas) {
                     var teoricos = (asignaturas[a].creditosT * asignaturas[a].gruposT) + (asignaturas[a].creditosT * asignaturas[a].gruposTI * 1.5);
                     var practicos = (asignaturas[a].creditosP * asignaturas[a].gruposP) + (asignaturas[a].creditosP * asignaturas[a].gruposPI * 1.5);
                     total += teoricos + practicos;
                     console.log(total)
                 }
-                this.cursos[this.dropdown.data[this.dropdown.actual]][ano].total = total;
+                this.cursos[this.actual][ano].total = total;
             }
 
 

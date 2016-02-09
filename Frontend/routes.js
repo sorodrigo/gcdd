@@ -31,7 +31,7 @@ angular.module('SGCD')
             })
 
             .when('/asignaturas', {
-                templateUrl: './gestionar/asignaturas.html',
+                templateUrl: 'gestionar/asignaturas/index.html',
                 controller: 'AsignaturasCtrl',
                 controllerAs: 'asignaturas'
             })
