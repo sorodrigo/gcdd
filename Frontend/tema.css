@@ -345,7 +345,7 @@ p.app-content-text{
 
 }
 
-.btn.asignar, .btn.asignar:focus {
+.btn.info, .btn.info:focus {
     border-radius: 40em;
     -webkit-border-radius: 40em;
     -moz-border-radius: 40em;
@@ -390,8 +390,8 @@ p.app-content-text{
 
 /* Responsive Smartphones */
 
-/* LANDSCAPE */
-@media (max-width: 47.9em) and (orientation: portrait) {
+/* PORTRAIT */
+@media (max-width: 47.9em) {
 
     .fila-responsive {
         display: inline-block;
@@ -424,40 +424,9 @@ p.app-content-text{
     .search-bar{
         width: 85%;
     }
-}
 
-/* PORTRAIT */
-@media (max-width: 47.9em) and (orientation: landscape) {
-
-    .fila-responsive {
-        display: block;
-    }
-
-    .fila-responsive li {
-        width: 100%;
-    }
-
-    .boton-celda{
-        font-size: 115%;
-    }
-
-    .app-content-textbox {
-        width: 100%
-    }
-
-    .grupos {
-        height: 7.55em;
-    }
-
-    #search-head {
-        display: none;
-    }
-
-    .search-bar > input, .search-bar > input:focus {
-        font-size: 80%;
-    }
-    .search-bar{
-        width: 85%;
+    .tabla-gestionar{
+        display: none !important;
     }
 }
 

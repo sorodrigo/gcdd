@@ -6,19 +6,20 @@
                                actual="asignaturas.actual"></dropdown-selector></h4>
     </div>
     <div class="pure-u-2-5">
-            <h4><button type="button" class="btn btn-default app-content-text" ng-click="asignaturas.agregar()">Agregar <span
+            <h4><button type="button" class="btn btn-default app-content-text" ng-click="asignaturas.edicion(null, '')">Agregar <span
                     class="glyphicon glyphicon-plus"></span></button>
             <button type="button" class="btn btn-success app-content-text" ng-show="asignaturas.cambios">Guardar</button></h4>
     </div>
 </div>
 <div class="pure-g container-fluid">
-    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head">
+    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head tabla-gestionar">
         <li>Nombre</li>
         <li>Caracter</li>
         <li>Cr&eacute;ditos</li>
+        <li>Año</li>
         <li>Semestre</li>
         <li>Nº Alumnos</li>
-        <li>Nº Grupos</li>
+        <li>Nº Grupos y Desdobles</li>
         <li>Cr&eacute;ditos Departamento</li>
     </ul>
 </div>
@@ -27,23 +28,38 @@
     <div class="pure-g container-fluid" ng-repeat="asignatura in ano.asignaturas">
 
         <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
-            < <li>Nombre</li>
+            <li>Nombre</li>
             <li>Caracter</li>
             <li>Cr&eacute;ditos</li>
+            <li>Año</li>
             <li>Semestre</li>
             <li>Nº Alumnos</li>
-            <li>Nº Grupos</li>
+            <li>Nº Grupos y Desdobles</li>
             <li>Cr&eacute;ditos Departamento</li>
         </ul>
-
         <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
             <li>{{asignatura.nombre}}</li>
             <li>{{asignatura.caracter}}</li>
             <li>{{asignatura.creditosT + asignatura.creditosP}}</li>
+            <li>{{$parent.$index + 1}}</li>
             <li>{{asignatura.semestre}}</li>
             <li>{{asignatura.num_alumnos}}</li>
-            <li>{{asignatura.num_grupos}}</li>
-            <li>{{(asignatura.creditosT + asignatura.creditosP) * asignatura.num_grupos}}</li>
+            <li>{{asignatura.num_grupos}} / {{asignatura.num_desdobles}}</li>
+            <li>
+                {{(asignatura.creditosT + asignatura.creditosP) * asignatura.num_grupos}}
+
+                <div class="pull-right">
+                <a class="btn info"
+                        ng-click="asignaturas.edicion(asignatura, $parent.$index)">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a>
+
+                <button type="button" class="btn btn-eliminar"
+                        ng-click="asignaturas.eliminar(asignatura, $parent.$index)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                </div>
+            </li>
         </ul>
 
     </div>

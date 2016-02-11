@@ -19,7 +19,6 @@
             this.cursos = {
                 'Ingenieria Software': [
                     {
-                        ano: 1,
                         total: 0,
                         asignaturas: [
                             {
@@ -32,13 +31,14 @@
                                 gruposPI: 0,
                                 num_alumnos: 100,
                                 num_grupos: 3,
-                                num_desdobles: 0
+                                num_desdobles: 0,
+                                semestre: 1,
+                                caracter: 'OB'
                             }
                         ]
                     },
 
                     {
-                        ano: 2,
                         total: 0,
                         asignaturas: [
                             {
@@ -51,7 +51,9 @@
                                 gruposPI: 0,
                                 num_alumnos: 100,
                                 num_grupos: 3,
-                                num_desdobles: 4
+                                num_desdobles: 4,
+                                semestre: 2,
+                                caracter: 'OB'
 
                             },
                             {
@@ -64,19 +66,19 @@
                                 gruposPI: 0,
                                 num_alumnos: 80,
                                 num_grupos: 3,
-                                num_desdobles: 4
+                                num_desdobles: 4,
+                                semestre: 2,
+                                caracter: 'OB'
                             }
                         ]
                     },
 
                     {
-                        ano: 3,
                         total: 0,
                         asignaturas: []
                     },
 
                     {
-                        ano: 4,
                         total: 0,
                         asignaturas: [
                             {
@@ -89,14 +91,33 @@
                                 gruposPI: 0,
                                 num_alumnos: 60,
                                 num_grupos: 2,
-                                num_desdobles: 2
+                                num_desdobles: 2,
+                                semestre: 1,
+                                caracter: 'OP'
                             }
                         ]
                     }
                 ],
+                'Ingenieria Computadores': [
+                {
+                    total: 0,
+                    asignaturas: []
+                },
+                {
+                    total: 0,
+                    asignaturas: []
+                },
+                    {
+                        total: 0,
+                        asignaturas: []
+                    },
+                    {
+                        total: 0,
+                        asignaturas: []
+                    }
+            ],
                 'Master Web': [
                     {
-                        ano: 1,
                         total: 0,
                         asignaturas: [
                             {
@@ -109,54 +130,82 @@
                                 gruposPI: 0,
                                 num_alumnos: 30,
                                 num_grupos: 3,
-                                num_desdobles: 6
+                                num_desdobles: 6,
+                                semestre: 1,
+                                caracter: 'OP'
                             }
                         ]
                     },
 
                     {
-                        ano: 2,
-                        total: 0
+                        total: 0,
+                        asignaturas: []
+                    }
+                ],
+                'Master Sistemas Distribuidos' : [
+                    {
+                        total: 0,
+                        asignaturas: []
+                    },
+                    {
+                        total: 0,
+                        asignaturas: []
                     }
                 ]
             };
 
-            var that = this;
-            this.agregar = function () {
+            this.eliminar = function (item, ano) {
+                var index = this.cursos[this.actual][ano].asignaturas.indexOf(item);
+                    this.cursos[this.actual][ano].asignaturas.splice(index, 1);
+                    this.cambios = true;
 
+
+            };
+
+            var that = this;
+
+            this.edicion = function (asign, ano) {
                 var agregarModal = $uibModal.open({
                     templateUrl: './gestionar/asignaturas/agregarView.html',
                     controller: 'AgregarCtrl as agregar',
-                    size: 'lg'
+                    size: 'lg',
+                    resolve: {
+                        curso: function(){
+                            return that.cursos[that.actual];
+
+                        },
+                        asignaturaSeleccionada: function(){
+                            return asign;
+                        },
+                        anoAsignatura: function (){
+                            return ano
+                        }
+                    }
                 });
 
                 agregarModal.result.then(function (agregado) {
+                    if(agregado.versionAntigua.asignatura != null) {
+                        that.eliminar(agregado.versionAntigua.asignatura, agregado.versionAntigua.ano);
+                    }
+                        that.cambios = false;
+                        that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
 
-                    that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
-                    that.cambios = true;
                 });
             };
+
+
 
 
 
 
         }])
 
-        .controller('AgregarCtrl', ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+        .controller('AgregarCtrl', ['$uibModalInstance', '$scope', 'curso', 'asignaturaSeleccionada', 'anoAsignatura', function ($uibModalInstance, $scope, curso, asignaturaSeleccionada, anoAsignatura) {
 
-            this.asignatura = {
-                nombre: '',
-                    creditosT: 0,
-                    creditosP: 0,
-                    gruposT: 0,
-                    gruposTI: 0,
-                    gruposP: 0,
-                    gruposPI: 0,
-                    num_alumnos: 0,
-                    num_grupos: 0,
-                    num_desdobles: 0
-            };
-            this.ano = 0;
+            this.curso = curso;
+
+            this.asignatura = asignaturaSeleccionada;
+            this.ano = anoAsignatura;
 
             this.close = function () {
                 $uibModalInstance.dismiss('cancel');
@@ -165,12 +214,15 @@
             this.guardar = function () {
                 $scope.result = {
                     asignatura: this.asignatura,
-                    ano: this.ano - 1
+                    ano: this.ano,
+                    versionAntigua: {
+                        ano: anoAsignatura,
+                        asignatura: asignaturaSeleccionada
+                    }
                 };
 
-                $scope.result.ano >= 0 ?
-                    $uibModalInstance.close($scope.result)
-                    : alert();
+
+                $uibModalInstance.close($scope.result);
             }
 
         }]);

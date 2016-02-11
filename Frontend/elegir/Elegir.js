@@ -45,7 +45,6 @@
             this.cursos = {
                 'Ingenieria Software': [
                     {
-                        ano: 1,
                         total: 0,
                         asignaturas: [
                             {
@@ -61,7 +60,6 @@
                     },
 
                     {
-                        ano: 2,
                         total: 0,
                         asignaturas: [
                             {
@@ -87,13 +85,11 @@
                     },
 
                     {
-                        ano: 3,
                         total: 0,
                         asignaturas: []
                     },
 
                     {
-                        ano: 4,
                         total: 0,
                         asignaturas: [
                             {
@@ -110,12 +106,10 @@
                 ],
                 'Master Web': [
                     {
-                        ano: 1,
                         total: 0
                     },
 
                     {
-                        ano: 2,
                         total: 0
                     }
                 ]

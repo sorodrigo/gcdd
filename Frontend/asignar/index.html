@@ -34,16 +34,16 @@
 
             <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
                 <li>{{asignatura.nombre}}</li>
-                <li>{{ano.ano}}</li>
+                <li>{{$parent.$index + 1}}</li>
                 <li>{{key}}</li>
                 <li>{{asignatura.num_alumnos}}</li>
                 <li ng-class="asignar.estadoGrupo(key, $parent.$index, $index)">
                     {{asignatura.gruposT + asignatura.gruposTI}} / {{asignatura.num_grupos}}
-                    <a class="btn asignar" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/T" ng-if="asignatura.num_grupos > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
+                    <a class="btn info" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/T" ng-if="asignatura.num_grupos > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
                 </li>
                 <li ng-class="asignar.estadoDesdoble(key, $parent.$index, $index)">
                     {{asignatura.gruposP + asignatura.gruposPI}} / {{asignatura.num_desdobles}}
-                    <a class="btn asignar" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/P" ng-if="asignatura.num_desdobles > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
+                    <a class="btn info" ng-href="#/asignar/{{key | encode}}/{{asignatura.nombre | encode}}/P" ng-if="asignatura.num_desdobles > 0"><span class="glyphicon glyphicon-info-sign"></span></a>
                 </li>
             </ul>
         </div>

@@ -38,6 +38,12 @@
             };
         }])
 
+        .filter('integer', [function () {
+            return function (value) {
+                return parseInt(value, 10);
+            };
+        }])
+
         .directive('dropdownSelector', function() {
             return {
                 restrict: 'E',

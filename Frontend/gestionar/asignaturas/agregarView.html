@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" ng-click="agregar.close()">&times;</button>
-    <h4 class="modal-title text-center">Agregar <span class="glyphicon glyphicon-edit"></span></h4>
+    <h4 class="modal-title text-center">Edici&oacute;n <span class="glyphicon glyphicon-edit"></span></h4>
 </div>
 <div class="modal-body pure-g">
     <div class="pure-u-1-2 separator">
@@ -24,13 +24,18 @@
     </div>
 
     <div class="pure-u-1-4 separator">
-        <label for="semestre">Semestre</label>
-        <input id="semestre" name="semestre" class="form-control" type="text" placeholder="Semestre" ng-model="agregar.asignatura.semestre">
+        <label for="ano">Año</label>
+        <select name="ano" id="ano" ng-model="agregar.ano">
+            <option ng-repeat="ano in agregar.curso" value="{{$index}}">{{$index + 1}}</option>
+        </select>
     </div>
 
     <div class="pure-u-1-4 separator">
-        <label for="ano">Año</label>
-        <input id="ano" name="ano" class="form-control" type="text" placeholder="Año" ng-model="agregar.ano">
+        <label for="semestre">Semestre</label>
+        <select id="semestre" name="semestre" ng-model="agregar.asignatura.semestre">
+            <option value="{{(agregar.ano | integer) * 2 + 1 }}">{{(agregar.ano | integer) * 2 + 1 }}</option>
+            <option value="{{(agregar.ano | integer) * 2 + 2 }}">{{(agregar.ano | integer) * 2 + 2 }}</option>
+        </select>
     </div>
 
     <div class="pure-u-1-3 separator">
@@ -50,5 +55,5 @@
 
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="agregar.guardar()">Guardar</button>
+    <button type="button" class="btn btn-success app-content-text" data-dismiss="modal" ng-click="agregar.guardar()">Guardar</button>
 </div>

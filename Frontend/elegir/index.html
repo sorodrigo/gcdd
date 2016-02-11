@@ -16,7 +16,7 @@
         <uib-accordion-group>
             <uib-accordion-heading>
                 <div ng-click="elegir.accordion.setOneAtATime()">
-                    {{curso.ano}} Año
+                    {{$index + 1}} Año
                     <span class="pull-right creditos-header"
                           ng-show="curso.total > 0">{{curso.total}} Cr&eacute;ditos</span>
                 </div>
