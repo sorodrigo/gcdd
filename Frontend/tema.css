@@ -17,6 +17,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.btn {
+    font-size: 10pt;
+}
+
 /*
  * -- NAVIGATION BAR --
  *
@@ -282,6 +286,7 @@ p.app-content-text{
 .tabla-head {
     font-weight: 600;
     background-color: #62B0DE;
+    text-align: center !important;
 }
 
 .tabla-subhead {
@@ -292,8 +297,6 @@ p.app-content-text{
 .fila-responsive {
     list-style: none;
     padding-left: 0;
-    text-align: center;
-
 }
 
 .fila-responsive li {
