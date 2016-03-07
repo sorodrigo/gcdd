@@ -36,6 +36,18 @@ angular.module('SGCD')
                 controllerAs: 'asignaturas'
             })
 
+            .when('/titulaciones', {
+                templateUrl: 'gestionar/titulaciones/index.html',
+                controller: 'TitulacionesCtrl',
+                controllerAs: 'titulacionesCtrl'
+            })
+
+            .when('/profesores', {
+                templateUrl: 'gestionar/profesores/index.html',
+                controller: 'ProfesoresCtrl',
+                controllerAs: 'profesoresCtrl'
+            })
+
             .when('/', {
                 templateUrl: './elegir/index.html',
                 controller: 'ElegirCtrl',

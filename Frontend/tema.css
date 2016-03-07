@@ -416,10 +416,6 @@ p.app-content-text{
         height: 7.55em;
     }
 
-    #search-head {
-        display: none;
-    }
-
     .search-bar > input, .search-bar > input:focus {
         font-size: 80%;
     }
@@ -428,7 +424,7 @@ p.app-content-text{
         width: 85%;
     }
 
-    .tabla-gestionar{
+    .hide-header{
         display: none !important;
     }
 }

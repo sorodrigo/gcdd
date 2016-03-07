@@ -22,6 +22,7 @@
                         total: 0,
                         asignaturas: [
                             {
+                                idAsignatura: 1,
                                 nombre: 'Analisis Matematico',
                                 creditosT: 5,
                                 creditosP: 0,
@@ -29,7 +30,7 @@
                                 gruposTI: 1,
                                 gruposP: 0,
                                 gruposPI: 0,
-                                num_alumnos: 100,
+                                prevision: 100,
                                 num_grupos: 3,
                                 num_desdobles: 0,
                                 semestre: 1,
@@ -42,6 +43,7 @@
                         total: 0,
                         asignaturas: [
                             {
+                                idAsignatura: 2,
                                 nombre: 'Sistemas Operativos',
                                 creditosT: 3,
                                 creditosP: 3,
@@ -49,7 +51,7 @@
                                 gruposTI: 0,
                                 gruposP: 4,
                                 gruposPI: 0,
-                                num_alumnos: 100,
+                                prevision: 100,
                                 num_grupos: 3,
                                 num_desdobles: 4,
                                 semestre: 2,
@@ -57,6 +59,7 @@
 
                             },
                             {
+                                idAsignatura: 3,
                                 nombre: 'POOA',
                                 creditosT: 3,
                                 creditosP: 3,
@@ -64,7 +67,7 @@
                                 gruposTI: 1,
                                 gruposP: 5,
                                 gruposPI: 0,
-                                num_alumnos: 80,
+                                prevision: 80,
                                 num_grupos: 3,
                                 num_desdobles: 4,
                                 semestre: 2,
@@ -82,6 +85,7 @@
                         total: 0,
                         asignaturas: [
                             {
+                                idAsignatura: 4,
                                 nombre: 'Agentes de la Informacion',
                                 creditosT: 2,
                                 creditosP: 2,
@@ -89,10 +93,10 @@
                                 gruposTI: 0,
                                 gruposP: 2,
                                 gruposPI: 0,
-                                num_alumnos: 60,
+                                prevision: 60,
                                 num_grupos: 2,
                                 num_desdobles: 2,
-                                semestre: 1,
+                                semestre: 5,
                                 caracter: 'OP'
                             }
                         ]
@@ -121,6 +125,7 @@
                         total: 0,
                         asignaturas: [
                             {
+                                idAsignatura: 5,
                                 nombre: 'Opensource Frameworks',
                                 creditosT: 5,
                                 creditosP: 1,
@@ -128,7 +133,7 @@
                                 gruposTI: 1,
                                 gruposP: 6,
                                 gruposPI: 0,
-                                num_alumnos: 30,
+                                prevision: 30,
                                 num_grupos: 3,
                                 num_desdobles: 6,
                                 semestre: 1,
@@ -155,7 +160,12 @@
             };
 
             this.eliminar = function (item, ano) {
-                var index = this.cursos[this.actual][ano].asignaturas.indexOf(item);
+                for (var i = 0; i < this.cursos[this.actual][ano].asignaturas.length; i++){
+                    if (this.cursos[this.actual][ano].asignaturas[i].idAsignatura == item.idAsignatura){
+                        var index = i;
+                        break;
+                    }
+                }
                     this.cursos[this.actual][ano].asignaturas.splice(index, 1);
                     this.cambios = true;
 
@@ -166,8 +176,8 @@
 
             this.edicion = function (asign, ano) {
                 var agregarModal = $uibModal.open({
-                    templateUrl: './gestionar/asignaturas/agregarView.html',
-                    controller: 'AgregarCtrl as agregar',
+                    templateUrl: './gestionar/asignaturas/edicionAsignaturasView.html',
+                    controller: 'EditarAsignaturaCtrl as edicion',
                     size: 'lg',
                     resolve: {
                         curso: function(){
@@ -175,10 +185,10 @@
 
                         },
                         asignaturaSeleccionada: function(){
-                            return asign;
+                            return angular.copy(asign);
                         },
                         anoAsignatura: function (){
-                            return ano
+                            return ano;
                         }
                     }
                 });
@@ -186,10 +196,10 @@
                 agregarModal.result.then(function (agregado) {
                     if(agregado.versionAntigua.asignatura != null) {
                         that.eliminar(agregado.versionAntigua.asignatura, agregado.versionAntigua.ano);
-                    }
                         that.cambios = false;
+                    }
+                        console.log(agregado.asignatura);
                         that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
-
                 });
             };
 
@@ -200,7 +210,7 @@
 
         }])
 
-        .controller('AgregarCtrl', ['$uibModalInstance', '$scope', 'curso', 'asignaturaSeleccionada', 'anoAsignatura', function ($uibModalInstance, $scope, curso, asignaturaSeleccionada, anoAsignatura) {
+        .controller('EditarAsignaturaCtrl', ['$uibModalInstance', '$scope', 'curso', 'asignaturaSeleccionada', 'anoAsignatura', function ($uibModalInstance, $scope, curso, asignaturaSeleccionada, anoAsignatura) {
 
             this.curso = curso;
 
@@ -212,6 +222,16 @@
             };
 
             this.guardar = function () {
+
+                if(this.asignatura.idAsignatura == null)
+                {   //TODO
+                    console.log("API CREATE asignatura AQUI!!");
+                    this.asignatura.idAsignatura = "placeholder";
+                }
+                else{
+                    //TODO
+                    console.log("API EDIT asignatura AQUI!!");
+                }
                 $scope.result = {
                     asignatura: this.asignatura,
                     ano: this.ano,

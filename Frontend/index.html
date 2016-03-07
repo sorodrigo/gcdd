@@ -24,6 +24,8 @@
     <script src="perfil/Perfil.js"></script>
     <script src="asignar/Asignar.js"></script>
     <script src="gestionar/asignaturas/Asignaturas.js"></script>
+    <script src="gestionar/titulaciones/Titulaciones.js"></script>
+    <script src="gestionar/profesores/Profesores.js"></script>
     <script src="vendor/angular-nvd3.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -52,8 +54,8 @@
                     <li uib-dropdown>
                         <a href uib-dropdown-toggle ng-if="app.usuario.admin">Gestionar</a>
                         <ul class="uib-dropdown-menu">
-                            <li><a href="#/asignaturas" ng-click="app.nav.collapse(true)">Asignaturas</a></li>
                             <li><a href="#/titulaciones" ng-click="app.nav.collapse(true)">Titulaciones</a></li>
+                            <li><a href="#/asignaturas" ng-click="app.nav.collapse(true)">Asignaturas</a></li>
                             <li><a href="#/profesores" ng-click="app.nav.collapse(true)">Profesores</a></li>
                         </ul>
                     </li>
