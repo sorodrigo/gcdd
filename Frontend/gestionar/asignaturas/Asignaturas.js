@@ -175,6 +175,7 @@
             var that = this;
 
             this.edicion = function (asign, ano) {
+
                 var agregarModal = $uibModal.open({
                     templateUrl: './gestionar/asignaturas/edicionAsignaturasView.html',
                     controller: 'EditarAsignaturaCtrl as edicion',

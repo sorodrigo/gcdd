@@ -84,6 +84,11 @@
 
             this.titulacion = titulacionSeleccionada;
 
+            this.inputBool = [
+                {value: true, label: 'True'},
+                {value: false, label: 'False'}
+            ];
+
             this.close = function () {
                 $uibModalInstance.dismiss('cancel');
             };
@@ -100,7 +105,6 @@
                     console.log("API EDIT titulacion AQUI!!");
                 }
 
-                this.titulacion.valida = Boolean(parseInt(this.titulacion.valida));
                 $scope.result = {
                     titulacion: this.titulacion,
                     versionAntigua: {

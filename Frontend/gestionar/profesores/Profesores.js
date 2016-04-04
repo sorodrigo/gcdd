@@ -9,48 +9,68 @@
                     nombre: "James",
                     apellidos: "Rodriguez",
                     categoria: {
+                        idCategoria: 1,
                         categoria: "CATEDRATICO DE E.U.",
                         orden: 1
                     },
-                    dedicacion: "6 + 6",
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
                     titulacion: "Ing. en Asistencias y Goles",
-                    despacho: 1010
+                    despacho: 1010,
+                    doctor: false
                 },
                 {
                     idProfesor: 2,
                     nombre: "Frank",
                     apellidos: "Abagnale Jr.",
                     categoria: {
+                        idCategoria: 1,
                         categoria: "PROFESOR TITULAR DE E.U.",
                         orden: 2
                     },
-                    dedicacion: "6 + 6",
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
                     titulacion: "Master en Fraude Bancario",
-                    despacho: 2020
+                    despacho: 2020,
+                    doctor: false
                 },
                 {
                     idProfesor: 3,
                     nombre: "Roger",
                     apellidos: "Waters",
                     categoria: {
+                        idCategoria: 2,
                         categoria: "PROFESOR TITULAR DE E.U.",
                         orden: 2
                     },
-                    dedicacion: "6 + 8",
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
                     titulacion: "Pink Floyd Lead Singer",
-                    despacho: 3003
+                    despacho: 3003,
+                    doctor: false
                 },
                 {
                     idProfesor: 4,
                     nombre: "Marlon",
                     apellidos: "Brando",
                     categoria: {
+                        idCategoria: 3,
                         categoria: "CATEDRATICO DE LA UNIVERSIDAD",
                         orden: 1
                     },
-                    dedicacion: "6 + 8",
-                    titulacion: "Don Vito Corleone",
-                    despacho: 4004
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
+                    titulacion: "The Don",
+                    despacho: 4004,
+                    doctor: true
                 }
             ];
 
@@ -95,6 +115,22 @@
         .controller('EditarProfesorCtrl',  ['$uibModalInstance', '$scope', 'profesorSeleccionado', function ($uibModalInstance, $scope, profesorSeleccionado) {
 
             this.profesor = profesorSeleccionado;
+
+            this.inputCategorias = [
+                {idCategoria: 1, categoria: "CATEDRATICO DE E.U.", orden: 1},
+                {idCategoria: 2, categoria: "PROFESOR TITULAR DE E.U.", orden: 2},
+                {idCategoria: 3, categoria: "CATEDRATICO DE LA UNIVERSIDAD", orden: 1}
+            ];
+
+            this.inputDedicacion = [
+                {idDedicacion: 1, dedicacion: "6 + 8"},
+                {idDedicacion: 2, dedicacion: "6 + 6"},
+            ];
+
+            this.inputBool = [
+                {value: true, label: 'True'},
+                {value: false, label: 'False'}
+            ];
 
             this.close = function () {
                 $uibModalInstance.dismiss('cancel');
