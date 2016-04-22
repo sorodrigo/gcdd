@@ -48,6 +48,12 @@ angular.module('SGCD')
                 controllerAs: 'profesoresCtrl'
             })
 
+            .when('/cargos', {
+                templateUrl: 'gestionar/cargos/index.html',
+                controller: 'CargosCtrl',
+                controllerAs: 'cargosCtrl'
+            })
+
             .when('/', {
                 templateUrl: './elegir/index.html',
                 controller: 'ElegirCtrl',
