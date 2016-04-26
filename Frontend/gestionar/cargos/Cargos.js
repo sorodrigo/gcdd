@@ -4,7 +4,7 @@
         .controller('CargosCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
 
             this.modos = ["Profesores", "Cargos"];
-            this.modoActual = "Profesores";
+            this.actual = "";
 
             this.profesoresConCargo = [{
                 idProfesor: 1,
@@ -13,8 +13,8 @@
                 cargo: {
                     idCargo: 1,
                     tipo: "Director De Escuela",
-                    horas: 15,
-                    carga: 5
+                    carga: 15,
+                    horas: 5
                 }
 
             }];
@@ -25,12 +25,11 @@
             ];
 
             this.eliminar = function(item){
-
-                if(this.modoActual = "Profesores"){
+                if(this.actual == "Profesores"){
                     this.eliminarProfesorCargo(item);
                 }
 
-                else{
+                else if(this.actual == "Cargos"){
                     this.eliminarCargo(item);
                 }
             };
@@ -43,21 +42,24 @@
                         break;
                     }
                 }
-                this.profesoresConCargo.splice(index, 1);
+                if(typeof(index) != 'undefined'){
+                    this.profesoresConCargo.splice(index, 1);
+                }
 
                 this.cambios = true;
 
             };
 
             this.eliminarCargo = function (item) {
-
                 for (var i = 0; i < this.cargos.length; i++) {
                     if (this.cargos[i].idCargo == item.idCargo) {
                         var index = i;
                         break;
                     }
                 }
-                this.cargos.splice(index, 1);
+                if(typeof(index) != 'undefined') {
+                    this.cargos.splice(index, 1);
+                }
 
                 this.cambios = true;
             };
@@ -65,7 +67,7 @@
             this.edicion = function (item) {
 
 
-                if (this.modoActual == "Profesores") {
+                if (this.actual == "Profesores") {
                     this.edicionProfesoresCargo(item);
                 }
                 else {
@@ -110,6 +112,7 @@
                 });
 
                 agregarModal.result.then(function (agregado) {
+                    that.actual = "Cargos";
                     if (agregado.versionAntigua.cargo != null) {
                         that.eliminar(agregado.versionAntigua.cargo);
                     }
@@ -139,12 +142,12 @@
             this.guardar = function () {
 
                 if (this.profesorConCargo.idProfesor == null) {   //TODO
-                    console.log("API CREATE cargo AQUI!!");
+                    console.log("API CREATE profesor con cargo AQUI!!");
                     this.profesorConCargo.idProfesor = "placeholder";
                 }
                 else {
                     //TODO
-                    console.log("API EDIT cargo AQUI!!");
+                    console.log("API EDIT profesor con cargo AQUI!!");
                 }
 
                 $scope.result = {
@@ -161,6 +164,37 @@
         }])
     
         .controller('EditarCargoCtrl', ['$uibModalInstance', '$scope', 'cargoSeleccionado', function ($uibModalInstance, $scope, cargoSeleccionado){
-            
+            this.inputCargos = [
+                {idCargo: 1, tipo: "Director De Escuela", carga: 15, horas: 5},
+                {idCargo: 2, tipo: "Secretario de Escuela", carga: 12, horas: 4},
+                {idCargo: 3, tipo: "Director Departamento", carga: 9, horas: 3},
+            ];
+
+            this.cargo = cargoSeleccionado;
+
+            this.close = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+
+            this.guardar = function () {
+
+                if (this.cargo.idCargo == null) {   //TODO
+                    console.log("API CREATE cargo AQUI!!");
+                    this.cargo.idCargo = "placeholder";
+                }
+                else {
+                    //TODO
+                    console.log("API EDIT cargo AQUI!!");
+                }
+
+                $scope.result = {
+                    cargo: this.cargo,
+                    versionAntigua: {
+                        cargo: cargoSeleccionado
+                    }
+                };
+
+                $uibModalInstance.close($scope.result);
+            }
         }]);
 })();

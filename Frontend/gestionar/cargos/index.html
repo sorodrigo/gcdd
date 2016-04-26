@@ -4,7 +4,7 @@
     <div class="pure-u-3-5">
         <h4><span class="app-content-text-subhead">Modo:</span>
             <dropdown-selector data="cargosCtrl.modos"
-                               actual="cargosCtrl.modoActual"></dropdown-selector>
+                               actual="cargosCtrl.actual"></dropdown-selector>
         </h4>
     </div>
 
@@ -18,46 +18,89 @@
     </div>
 </div>
 
-<div ng-if="cargosCtrl.modoActual == 'Profesores'">
-<div class="pure-g container-fluid">
-    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head hide-header">
-        <li>Nombre</li>
-        <li>Apellidos</li>
-        <li>Tipo</li>
-        <li>Horas Reducidas</li>
-        <li>Cr&eacute;ditos</li>
-    </ul>
-</div>
+<div ng-if="cargosCtrl.actual == 'Profesores'">
 
-<div class="pure-g container-fluid" ng-repeat="profesorConCargo in cargosCtrl.profesoresConCargo">
-
-    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
-        <li>Nombre</li>
-        <li>Apellidos</li>
-        <li>Tipo</li>
-        <li>Horas Reducidas</li>
-        <li>Cr&eacute;ditos</li>
-    </ul>
-
-    <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
-        <li>{{profesorConCargo.nombre}}</li>
-        <li>{{profesorConCargo.apellidos}}</li>
-        <li>{{profesorConCargo.cargo.tipo}}</li>
-        <li>{{profesorConCargo.cargo.horas}}</li>
-        <li>{{profesorConCargo.cargo.carga}}
-            <div class="pull-right">
-                <a class="btn info"
-                   ng-click="cargosCtrl.edicion(profesorConCargo)">
-                    <span class="glyphicon glyphicon-info-sign"></span>
-                </a>
-
-                <button type="button" class="btn btn-eliminar"
-                        ng-click="cargosCtrl.eliminar(profesorConCargo)">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-            </div>
-        </li>
-    </ul>
-
-</div>
+    <div class="pure-g container-fluid">
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head hide-header">
+            <li>Nombre</li>
+            <li>Apellidos</li>
+            <li>Tipo</li>
+            <li>Horas / Semana</li>
+            <li>Cr&eacute;ditos</li>
+        </ul>
     </div>
+
+    <div class="pure-g container-fluid" ng-repeat="profesorConCargo in cargosCtrl.profesoresConCargo | orderBy: '-cargo.carga'">
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
+            <li>Nombre</li>
+            <li>Apellidos</li>
+            <li>Tipo</li>
+            <li>Horas / Semana</li>
+            <li>Cr&eacute;ditos</li>
+        </ul>
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
+            <li>{{profesorConCargo.nombre}}</li>
+            <li>{{profesorConCargo.apellidos}}</li>
+            <li>{{profesorConCargo.cargo.tipo}}</li>
+            <li>{{profesorConCargo.cargo.horas}}</li>
+            <li>{{profesorConCargo.cargo.carga}}
+                <div class="pull-right">
+                    <a class="btn info"
+                       ng-click="cargosCtrl.edicion(profesorConCargo)">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+
+                    <button type="button" class="btn btn-eliminar"
+                            ng-click="cargosCtrl.eliminar(profesorConCargo)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+<div ng-if="cargosCtrl.actual == 'Cargos'">
+
+    <div class="pure-g container-fluid">
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head hide-header">
+            <li>Tipo</li>
+            <li>Horas/Semana</li>
+            <li>Cr&eacute;ditos</li>
+        </ul>
+    </div>
+
+    <div class="pure-g container-fluid" ng-repeat="cargo in cargosCtrl.cargos | orderBy: '-carga'">
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
+            <li>Tipo</li>
+            <li>Horas/Semana</li>
+            <li>Cr&eacute;ditos</li>
+        </ul>
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
+            <li>{{cargo.tipo}}</li>
+            <li>{{cargo.horas}}</li>
+            <li>{{cargo.carga}}</li>
+            <li></li>
+            <li>
+                <div class="pull-right">
+                    <a class="btn info"
+                       ng-click="cargosCtrl.edicion(cargo)">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+
+                    <button type="button" class="btn btn-eliminar"
+                            ng-click="cargosCtrl.eliminar(cargo)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

@@ -166,7 +166,9 @@
                         break;
                     }
                 }
+                if(typeof(index) != 'undefined') {
                     this.cursos[this.actual][ano].asignaturas.splice(index, 1);
+                }
                     this.cambios = true;
 
 

@@ -48,7 +48,9 @@
                         break;
                     }
                 }
-                this.titulaciones.splice(index, 1);
+                if(typeof(index) != 'undefined') {
+                    this.titulaciones.splice(index, 1);
+                }
                 this.cambios = true;
 
 

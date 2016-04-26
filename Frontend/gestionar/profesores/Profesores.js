@@ -81,7 +81,9 @@
                         break;
                     }
                 }
-                this.profesores.splice(index, 1);
+                if(typeof(index) != 'undefined') {
+                    this.profesores.splice(index, 1);
+                }
                 this.cambios = true;
 
             };

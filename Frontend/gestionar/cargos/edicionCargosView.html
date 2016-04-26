@@ -6,22 +6,22 @@
 
     <div class="pure-u-1-3 separator">
         <label for="tipo">Tipo</label>
-        <select id="tipo" name="tipo" ng-model="edicion.cargo.cargo"
-                ng-options="i as i.tipo for i in edicion.inputCargos track by i.idCargo">
-        </select>
+        <input id="tipo" name="tipo" type="text" placeholder="Tipo"
+               ng-model="edicion.cargo.tipo">
     </div>
 
 
     <div class="pure-u-1-3 separator">
-        <label for="horas">Horas Reducidas</label>
-        <input id="horas" name="horas" type="number" placeholder="Horas Reducidas"
-               ng-model="edicion.cargo.cargo.horas">
+        <label for="horas">Horas / Semana</label>
+        <input id="horas" name="horas" type="number" placeholder="Horas / Semana"
+               ng-model="edicion.cargo.horas" ng-change="edicion.cargo.carga = (edicion.cargo.horas * 3)">
     </div>
 
     <div class="pure-u-1-3 separator">
         <label for="creditos">N Cr&eacute;ditos</label>
-        <input id="creditos" name="creditos" type="number" placeholder="N Creditos"
-               ng-model="edicion.cargo.cargo.carga" readonly>
+        <input id="creditos" name="creditos" placeholder="N Creditos"
+               ng-model="edicion.cargo.carga" readonly>
+
     </div>
 
 </div>
