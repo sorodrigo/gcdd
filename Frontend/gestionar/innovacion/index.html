@@ -1,0 +1,65 @@
+<div class="pure-g">
+    <div class="pure-u-1"><h3 class="app-content-text">Gestionar PIE</h3></div>
+
+    <div class="pure-u-3-5"></div>
+    <div class="pure-u-2-5">
+        <h4>
+            <button type="button" class="btn btn-success app-content-text" ng-show="innovacionCtrl.cambios">Guardar
+            </button>
+        </h4>
+    </div>
+</div>
+
+    <div class="pure-g container-fluid">
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head hide-header">
+            <li>Nombre</li>
+            <li>Apellidos</li>
+            <li>Proyecto</li>
+            <li>Cr&eacute;ditos</li>
+        </ul>
+    </div>
+
+    <div class="pure-g container-fluid"
+         ng-repeat="profesorConProyecto in innovacionCtrl.profesores">
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
+            <li>Nombre</li>
+            <li>Apellidos</li>
+            <li>N Proyectos</li>
+            <li>Cr&eacute;ditos</li>
+
+        </ul>
+
+        <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive">
+            <li>{{profesorConProyecto.nombre}}</li>
+            <li>{{profesorConProyecto.apellidos}}</li>
+            <li>
+                <span ng-if="!innovacionCtrl.editados[profesorConProyecto.idProfesor]">{{profesorConProyecto.carga.proyectosInnovacion}}</span>
+                <span ng-if="innovacionCtrl.editados[profesorConProyecto.idProfesor]"><input id="{{profesorConProyecto.idProfesor}}"
+                                                                     name="{{profesorConProyecto.idProfesor}}" ng-model="profesorConProyecto.carga.proyectosInnovacion"
+                                                                     type="number" min="0" class="form-control validar"
+                                                                     required></span>
+            </li>
+            <li>{{(profesorConProyecto.carga.proyectosInnovacion * 3) > 3 ? 3 : (profesorConProyecto.carga.proyectosInnovacion * 3 | number: 0)}}</li>
+            <li>
+                <div class="pull-right">
+                    <a ng-if="!innovacionCtrl.editados[profesorConProyecto.idProfesor]" class="btn info"
+                       ng-click="innovacionCtrl.edicion(profesorConProyecto)">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+
+                    <a ng-if="innovacionCtrl.editados[profesorConProyecto.idProfesor]" class="btn info"
+                       ng-click="innovacionCtrl.cancelar(profesorConProyecto)">
+                        <span ng-if="innovacionCtrl.editados[profesorConProyecto.idProfesor]" class="glyphicon glyphicon-remove"></span>
+                    </a>
+
+                    <button type="button" ng-show="!innovacionCtrl.editados[profesorConProyecto.idProfesor]" class="btn btn-eliminar"
+                            ng-click="innovacionCtrl.restablecer(profesorConProyecto)">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>

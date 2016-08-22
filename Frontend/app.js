@@ -1,6 +1,7 @@
 /**
  * Created by Rodrigo on 17/10/15.
  */
+"use strict";
 
 (function () {
 

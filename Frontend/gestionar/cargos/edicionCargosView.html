@@ -6,20 +6,20 @@
 
     <div class="pure-u-1-3 separator">
         <label for="tipo">Tipo</label>
-        <input id="tipo" name="tipo" type="text" placeholder="Tipo"
-               ng-model="edicion.cargo.tipo">
+        <input id="tipo" name="tipo" type="text" class="form-control validar" placeholder="Tipo"
+               ng-model="edicion.cargo.tipo" required>
     </div>
 
 
     <div class="pure-u-1-3 separator">
         <label for="horas">Horas / Semana</label>
-        <input id="horas" name="horas" type="number" placeholder="Horas / Semana"
-               ng-model="edicion.cargo.horas" ng-change="edicion.cargo.carga = (edicion.cargo.horas * 3)">
+        <input id="horas" name="horas" type="number" class="form-control validar" min="0" placeholder="Horas / Semana"
+               ng-model="edicion.cargo.horas" ng-change="edicion.setCarga(edicion.cargo.horas)" required>
     </div>
 
     <div class="pure-u-1-3 separator">
         <label for="creditos">N Cr&eacute;ditos</label>
-        <input id="creditos" name="creditos" placeholder="N Creditos"
+        <input id="creditos" name="creditos" class="form-control" placeholder="N Creditos"
                ng-model="edicion.cargo.carga" readonly>
 
     </div>

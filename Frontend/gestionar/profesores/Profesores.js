@@ -1,7 +1,11 @@
+"use strict";
+
 (function () {
     angular.module('SGCD')
 
         .controller('ProfesoresCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
+
+            this.cambios = false;
 
             this.profesores = [
                 {

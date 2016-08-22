@@ -1,6 +1,7 @@
 /**
  * Created by Rodrigo on 20/12/15.
  */
+"use strict";
 
 (function () {
 
@@ -31,7 +32,6 @@
             this.accordion = {
                 oneAtATime: true,
                 setOneAtATime: function () { //Permite abrir solo un accordion a la vez
-                    console.log($window.innerWidth)
                     if ($window.innerWidth >= 1024) {
                         this.oneAtATime = false;
                     }
@@ -157,7 +157,7 @@
             this.getTotalAno = function (ano) {
                 var total = 0;
                 var asignaturas = this.cursos[this.actual][ano]['asignaturas'];
-                for (a in asignaturas) {
+                for (var a in asignaturas) {
                     var teoricos = (asignaturas[a].creditosT * asignaturas[a].gruposT) + (asignaturas[a].creditosT * asignaturas[a].gruposTI * 1.5);
                     var practicos = (asignaturas[a].creditosP * asignaturas[a].gruposP) + (asignaturas[a].creditosP * asignaturas[a].gruposPI * 1.5);
                     total += teoricos + practicos;

@@ -308,6 +308,10 @@ p.app-content-text{
     min-height: 3em;
 }
 
+.filaPersonal li {
+    width: 25% !important;
+}
+
 .celda-amarilla {
     background: rgba(255, 255, 0, 0.5);
 }
@@ -374,9 +378,19 @@ p.app-content-text{
     margin: 0;
     border: 0;
     background: transparent;
+    font-size: 110%;
+    padding-top: 0.15em;
 }
 
 .glyphicon.glyphicon-remove:hover {
+    color: #d2d35c;
+}
+
+.glyphicon.glyphicon-trash:hover {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+.glyphicon.glyphicon-ban-circle:hover {
     color: rgba(255, 0, 0, 0.5);
 }
 
@@ -389,6 +403,21 @@ p.app-content-text{
 
     text-align: center;
     margin-top: 0.5em;
+}
+
+/* Validacion de Formas */
+
+input.validar.ng-untouched{
+    border: 1px solid #ccc !important;
+
+}
+
+input.validar.ng-invalid {
+    border: 1px solid darkred;
+}
+
+input.validar.ng-valid {
+    border: 1px solid green;
 }
 
 /* Responsive Smartphones */

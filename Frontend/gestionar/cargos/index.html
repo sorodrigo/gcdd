@@ -30,7 +30,7 @@
         </ul>
     </div>
 
-    <div class="pure-g container-fluid" ng-repeat="profesorConCargo in cargosCtrl.profesoresConCargo | orderBy: '-cargo.carga'">
+    <div class="pure-g container-fluid" ng-repeat="profesorConCargo in cargosCtrl.profesores | orderBy: '-cargo.carga'">
 
         <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead">
             <li>Nombre</li>
@@ -54,7 +54,7 @@
 
                     <button type="button" class="btn btn-eliminar"
                             ng-click="cargosCtrl.eliminar(profesorConCargo)">
-                        <span class="glyphicon glyphicon-remove"></span>
+                        <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </div>
             </li>
@@ -95,7 +95,7 @@
 
                     <button type="button" class="btn btn-eliminar"
                             ng-click="cargosCtrl.eliminar(cargo)">
-                        <span class="glyphicon glyphicon-remove"></span>
+                        <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </div>
             </li>

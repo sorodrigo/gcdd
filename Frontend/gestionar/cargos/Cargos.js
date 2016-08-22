@@ -1,3 +1,5 @@
+"use strict";
+
 (function () {
     angular.module('SGCD')
 
@@ -5,11 +7,17 @@
 
             this.modos = ["Profesores", "Cargos"];
             this.actual = "";
+            this.cambios = false;
 
-            this.profesoresConCargo = [{
+            this.profesores = [{
                 idProfesor: 1,
                 nombre: "James",
                 apellidos: "Rodriguez",
+                categoria: {
+                    idCategoria: 1,
+                    categoria: "CATEDRATICO DE E.U.",
+                    orden: 1
+                },
                 cargo: {
                     idCargo: 1,
                     tipo: "Director De Escuela",
@@ -24,26 +32,26 @@
                 {idCargo: 3, tipo: "Director Departamento", carga: 9, horas: 3},
             ];
 
-            this.eliminar = function(item){
-                if(this.actual == "Profesores"){
+            this.eliminar = function (item) {
+                if (this.actual == "Profesores") {
                     this.eliminarProfesorCargo(item);
                 }
 
-                else if(this.actual == "Cargos"){
+                else if (this.actual == "Cargos") {
                     this.eliminarCargo(item);
                 }
             };
 
             this.eliminarProfesorCargo = function (item) {
 
-                for (var i = 0; i < this.profesoresConCargo.length; i++) {
-                    if (this.profesoresConCargo[i].idProfesor == item.idProfesor) {
+                for (var i = 0; i < this.profesores.length; i++) {
+                    if (this.profesores[i].idProfesor == item.idProfesor) {
                         var index = i;
                         break;
                     }
                 }
-                if(typeof(index) != 'undefined'){
-                    this.profesoresConCargo.splice(index, 1);
+                if (typeof(index) != 'undefined') {
+                    this.profesores.splice(index, 1);
                 }
 
                 this.cambios = true;
@@ -57,7 +65,7 @@
                         break;
                     }
                 }
-                if(typeof(index) != 'undefined') {
+                if (typeof(index) != 'undefined') {
                     this.cargos.splice(index, 1);
                 }
 
@@ -95,7 +103,7 @@
                     }
                     that.cambios = false;
                     console.log(agregado.profesorConCargo);
-                    that.profesoresConCargo.push(agregado.profesorConCargo);
+                    that.profesores.push(agregado.profesorConCargo);
                 });
             };
 
@@ -126,6 +134,81 @@
 
         .controller('EditarProfesoresCargoCtrl', ['$uibModalInstance', '$scope', 'profCargoSeleccionado', function ($uibModalInstance, $scope, profCargoSeleccionado) {
 
+            this.profesor = profCargoSeleccionado;
+
+            this.cargo = profCargoSeleccionado ? profCargoSeleccionado.cargo : null;
+
+            this.inputProfesores = [
+                {
+                    idProfesor: 1,
+                    nombre: "James",
+                    apellidos: "Rodriguez",
+                    categoria: {
+                        idCategoria: 1,
+                        categoria: "CATEDRATICO DE E.U.",
+                        orden: 1
+                    },
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
+                    titulacion: "Ing. en Asistencias y Goles",
+                    despacho: 1010,
+                    doctor: false
+                },
+                {
+                    idProfesor: 2,
+                    nombre: "Frank",
+                    apellidos: "Abagnale Jr.",
+                    categoria: {
+                        idCategoria: 1,
+                        categoria: "PROFESOR TITULAR DE E.U.",
+                        orden: 2
+                    },
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
+                    titulacion: "Master en Fraude Bancario",
+                    despacho: 2020,
+                    doctor: false
+                },
+                {
+                    idProfesor: 3,
+                    nombre: "Roger",
+                    apellidos: "Waters",
+                    categoria: {
+                        idCategoria: 2,
+                        categoria: "PROFESOR TITULAR DE E.U.",
+                        orden: 2
+                    },
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
+                    titulacion: "Pink Floyd Lead Singer",
+                    despacho: 3003,
+                    doctor: false
+                },
+                {
+                    idProfesor: 4,
+                    nombre: "Marlon",
+                    apellidos: "Brando",
+                    categoria: {
+                        idCategoria: 3,
+                        categoria: "CATEDRATICO DE LA UNIVERSIDAD",
+                        orden: 1
+                    },
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
+                    titulacion: "The Don",
+                    despacho: 4004,
+                    doctor: true
+                }
+            ];
+
             this.inputCargos = [
                 {idCargo: 1, tipo: "Director De Escuela", carga: 15, horas: 5},
                 {idCargo: 2, tipo: "Secretario de Escuela", carga: 12, horas: 4},
@@ -133,25 +216,26 @@
             ];
 
 
-            this.profesorConCargo = profCargoSeleccionado;
-
             this.close = function () {
                 $uibModalInstance.dismiss('cancel');
             };
 
             this.guardar = function () {
 
-                if (this.profesorConCargo.idProfesor == null) {   //TODO
+                this.profesor.cargo = this.cargo;
+
+                if (this.profesor.idProfesor == null) {   //TODO
                     console.log("API CREATE profesor con cargo AQUI!!");
-                    this.profesorConCargo.idProfesor = "placeholder";
+                    this.profesor.idProfesor = "placeholder";
                 }
                 else {
                     //TODO
                     console.log("API EDIT profesor con cargo AQUI!!");
                 }
 
+
                 $scope.result = {
-                    profesorConCargo: this.profesorConCargo,
+                    profesorConCargo: this.profesor,
                     versionAntigua: {
                         profesorConCargo: profCargoSeleccionado
                     }
@@ -162,8 +246,8 @@
             }
 
         }])
-    
-        .controller('EditarCargoCtrl', ['$uibModalInstance', '$scope', 'cargoSeleccionado', function ($uibModalInstance, $scope, cargoSeleccionado){
+
+        .controller('EditarCargoCtrl', ['$uibModalInstance', '$scope', 'cargoSeleccionado', function ($uibModalInstance, $scope, cargoSeleccionado) {
             this.inputCargos = [
                 {idCargo: 1, tipo: "Director De Escuela", carga: 15, horas: 5},
                 {idCargo: 2, tipo: "Secretario de Escuela", carga: 12, horas: 4},
@@ -174,6 +258,11 @@
 
             this.close = function () {
                 $uibModalInstance.dismiss('cancel');
+            };
+
+            this.setCarga = function (horas) {
+                this.cargo.carga = horas * 3;
+                console.log(this.cargo.carga);
             };
 
             this.guardar = function () {

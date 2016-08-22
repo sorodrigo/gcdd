@@ -1,11 +1,19 @@
 /**
  * Created by Rodrigo on 20/12/15.
  */
+"use strict";
 
 (function () {
+
+
+
     angular.module('SGCD')
 
+
+
         .controller('AsignaturasCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
+
+            this.cambios = false;
 
             this.titulaciones = [
                 'Ingenieria Software',

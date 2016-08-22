@@ -1,6 +1,7 @@
 /**
  * Created by Rodrigo on 08/11/15.
  */
+"use strict";
 
 angular.module('SGCD')
 
@@ -52,6 +53,18 @@ angular.module('SGCD')
                 templateUrl: 'gestionar/cargos/index.html',
                 controller: 'CargosCtrl',
                 controllerAs: 'cargosCtrl'
+            })
+            
+            .when('/innovacion', {
+                templateUrl: 'gestionar/innovacion/index.html',
+                controller: 'InnovacionCtrl',
+                controllerAs: 'innovacionCtrl'
+            })
+
+            .when('/personal', {
+                templateUrl: 'gestionar/personal/index.html',
+                controller: 'PersonalCtrl',
+                controllerAs: 'personalCtrl'
             })
 
             .when('/', {

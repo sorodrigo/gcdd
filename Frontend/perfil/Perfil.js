@@ -1,6 +1,8 @@
 /**
  * Created by Rodrigo on 20/12/15.
  */
+"use strict";
+
 (function (){
     angular.module('SGCD')
 
@@ -39,6 +41,7 @@
 
                 });
             };
+            //TODO: cargaTotal
             this.cargaTotal = function () {
                 var carga = this.profesor.carga;
                 var total = carga.prevision - carga.proyectosInnovacion - carga.practicasProfesionales - carga.trabajosFinales - carga.cargo;
@@ -98,6 +101,7 @@
                 }
             };
 
+            //TODO: data (proyectos innovacion)
             this.data = [
                 {
                     key: "Proyectos Innovacion",

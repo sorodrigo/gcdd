@@ -1,6 +1,8 @@
 /**
  * Created by Rodrigo on 20/12/15.
  */
+"use strict";
+
 (function() {
     angular.module('Home')
 
