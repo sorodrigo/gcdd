@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="info.close()">&times;</button>
+    <p class="modal-title text-center">{{info.categoriaConDedicacion.categoria.categoria + ' ('
+        +info.categoriaConDedicacion.dedicacion.dedicacion + ')'}} <span class="glyphicon glyphicon-user"></span></p>
+</div>
+<div class="modal-body text-center">
+    <div ng-repeat="profesor in info.profesores">
+        {{profesor.nombre + ' ' + profesor.apellidos}}
+        <br>
+    </div>
+</div>

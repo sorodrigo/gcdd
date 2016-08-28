@@ -3,7 +3,7 @@
 (function () {
     angular.module('SGCD')
 
-        .controller('PersonalCtrl', [function () {
+        .controller('PersonalCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
 
             this.personal = [
                 {
@@ -124,5 +124,101 @@
                     numero: 2
                 }
             ];
-        }]);
+
+            this.info = function (cat) {
+                $uibModal.open({
+                    templateUrl: './gestionar/personal/infoPersonalView.html',
+                    controller: 'InfoPersonal as info',
+                    size: 'md',
+                    resolve: {
+                        categoriaSeleccionada: function () {
+                            return angular.copy(cat);
+                        }
+                    }
+                });
+            };
+
+        }])
+
+        .controller('InfoPersonal', ['$uibModalInstance', 'categoriaSeleccionada', function ($uibModalInstance, categoriaSeleccionada) {
+
+            this.categoriaConDedicacion = categoriaSeleccionada;
+
+            //TODO: API Get Profesores by categoriaConDedicacion
+            this.profesores = [
+                {
+                    idProfesor: 1,
+                    nombre: "James",
+                    apellidos: "Rodriguez",
+                    categoria: {
+                        idCategoria: 1,
+                        categoria: "CATEDRATICO DE E.U.",
+                        orden: 1
+                    },
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
+                    titulacion: "Ing. en Asistencias y Goles",
+                    despacho: 1010,
+                    doctor: false
+                },
+                {
+                    idProfesor: 2,
+                    nombre: "Frank",
+                    apellidos: "Abagnale Jr.",
+                    categoria: {
+                        idCategoria: 1,
+                        categoria: "PROFESOR TITULAR DE E.U.",
+                        orden: 2
+                    },
+                    dedicacion: {
+                        idDedicacion: 2,
+                        dedicacion: "6 + 6"
+                    },
+                    titulacion: "Master en Fraude Bancario",
+                    despacho: 2020,
+                    doctor: false
+                },
+                {
+                    idProfesor: 3,
+                    nombre: "Roger",
+                    apellidos: "Waters",
+                    categoria: {
+                        idCategoria: 2,
+                        categoria: "PROFESOR TITULAR DE E.U.",
+                        orden: 2
+                    },
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
+                    titulacion: "Pink Floyd Lead Singer",
+                    despacho: 3003,
+                    doctor: false
+                },
+                {
+                    idProfesor: 4,
+                    nombre: "Marlon",
+                    apellidos: "Brando",
+                    categoria: {
+                        idCategoria: 3,
+                        categoria: "CATEDRATICO DE LA UNIVERSIDAD",
+                        orden: 1
+                    },
+                    dedicacion: {
+                        idDedicacion: 1,
+                        dedicacion: "6 + 8"
+                    },
+                    titulacion: "The Don",
+                    despacho: 4004,
+                    doctor: true
+                }
+            ];
+
+            this.close = function() {
+                $uibModalInstance.dismiss('close');
+            };
+
+        }])
 })();
