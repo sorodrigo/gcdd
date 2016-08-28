@@ -11,5 +11,5 @@ Angular-nvD3 como framework auxiliar de BootstrapUI.
 #Back-End
 NodeJS como servidor.
 Express como framework backend.
-MySQL o PostgreSQL como base de datos (pendiente de decidirse).
-Sequelize como ORM para la base de datos y el servidor Node.
+PostgreSQL como base de datos (pendiente de decidirse).
+Sequelize como ORM para la base de datos.
