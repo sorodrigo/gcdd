@@ -11,5 +11,5 @@ Trabajo de fin de grado encargado de gestionar la carga docente de un departamen
 #Back-End
 - NodeJS como servidor.
 - Express como framework backend.
-- PostgreSQL como base de datos (pendiente de decidirse).
+- PostgreSQL como base de datos.
 - Sequelize como ORM para la base de datos.
