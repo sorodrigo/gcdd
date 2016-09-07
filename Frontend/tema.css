@@ -165,12 +165,9 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 0 auto;
-    -webkit-border-radius: 40em;
-    -moz-border-radius: 40em;
-    border-radius: 40em;
     background: white;
-    border: solid black 0.15em;
     display: block;
+    border: rgba(212, 212, 212, 0.5) solid 2px;
 
 }
 
@@ -199,21 +196,21 @@ p.app-content-text{
 }
 
 .app-content-textbox {
-    border: solid black 0.15em;
     background: white;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
+    border-top: solid 6px #62B0DE;
+    border-bottom: rgba(212, 212, 212, 0.5) solid 2px;
+    border-left: rgba(212, 212, 212, 0.5) solid 2px;
+    border-right: rgba(212, 212, 212, 0.5) solid 2px;
     margin: auto;
     overflow: scroll;
 }
 
 .app-content-textbox-big {
-    border: solid black 0.15em;
     background: white;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
+    border-top: solid 6px #62B0DE;
+    border-bottom: rgba(212, 212, 212, 0.5) solid 2px;
+    border-left: rgba(212, 212, 212, 0.5) solid 2px;
+    border-right: rgba(212, 212, 212, 0.5) solid 2px;
     margin: auto;
 }
 
@@ -260,8 +257,7 @@ p.app-content-text{
 .numero-grupos {
     text-align: center;
     display: inline;
-    color: mediumblue;
-    opacity: 0.7;
+    color: #2f83de;
 }
 
 .caja-celda {
@@ -285,8 +281,12 @@ p.app-content-text{
 
 .tabla-head {
     font-weight: 600;
-    background-color: #62B0DE;
+    font-size: 14pt;
+    background-color: white;
     text-align: center !important;
+    border-bottom: solid 6px #62B0DE;
+    min-height: 1.75em;
+
 }
 
 .tabla-subhead {
@@ -306,6 +306,14 @@ p.app-content-text{
     vertical-align: baseline;
     text-align: left;
     min-height: 3em;
+}
+
+.fila-responsive.tabla-head li {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    vertical-align: baseline;
+    text-align: left;
+    border-bottom: 0 !important;
 }
 
 .celda-amarilla {
@@ -377,6 +385,10 @@ p.app-content-text{
 
 .glyphicon.glyphicon-info-sign:hover {
     color: rgba(0, 0, 255, 0.7);
+}
+
+.glyphicon.glyphicon-pencil:hover {
+    color: rgba(255, 125, 0, 0.7);
 }
 
 .btn-navegacion {

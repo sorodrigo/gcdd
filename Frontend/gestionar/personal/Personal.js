@@ -124,6 +124,8 @@
                     numero: 2
                 }
             ];
+            this.total = 91.56;
+            this.mediaCreditos = 24;
 
             this.info = function (cat) {
                 $uibModal.open({

@@ -61,6 +61,12 @@ angular.module('SGCD')
                 controllerAs: 'innovacionCtrl'
             })
 
+            .when('/practicas', {
+                templateUrl: 'gestionar/practicas/index.html',
+                controller: 'PracticasCtrl',
+                controllerAs: 'practicasCtrl'
+            })
+
             .when('/personal', {
                 templateUrl: 'gestionar/personal/index.html',
                 controller: 'PersonalCtrl',

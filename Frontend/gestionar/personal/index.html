@@ -19,7 +19,7 @@
 </div>
 
 <div class="pure-g container-fluid">
-    <div class="pure-u-3-5">
+    <div class="pure-u-1 pure-u-md-3-5">
         <div class="pure-g container-fluid" ng-repeat="categoriaConDedicacion in personalCtrl.personal">
             <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead filaPersonal">
                 <li>Equivalencia</li>
@@ -47,13 +47,13 @@
     </div>
 
 
-    <div class="pure-u-2-5 separator">
+    <div class="pure-u-1 pure-u-md-2-5 separator">
 
         <div class="pure-g container-fluid resumen-personal">
 
-            <h4 class="app-content-text">TOTAL con P.I.E: 91.56</h4>
+            <h4 class="app-content-text">TOTAL con P.I.E: {{personalCtrl.total}}</h4>
 
-            <h4 class="app-content-text">Creditos/Profesor: 24</h4>
+            <h4 class="app-content-text">Creditos/Profesor: {{personalCtrl.mediaCreditos}}</h4>
 
         </div>
 
