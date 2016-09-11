@@ -1,28 +1,15 @@
+# Mac OS
+.DS_Store
 
-Frontend/.idea/.name
+# Text editors
+*.idea
+.idea*
 
-Frontend/.idea/.name
+# Vendors
+/node_modules
 
-Frontend/.idea/encodings.xml
+# Logs
+*.log*
 
-Frontend/.idea/Frontend.iml
-
-Frontend/.idea/misc.xml
-
-Frontend/.idea/modules.xml
-
-Frontend/.idea/workspace.xml
-
-.idea/.name
-
-.idea/encodings.xml
-
-.idea/misc.xml
-
-.idea/modules.xml
-
-.idea/TFG-Gestion-Carga-Docente-Departamental.iml
-
-.idea/vcs.xml
-
-.idea/workspace.xml
+# ENV variables
+.env

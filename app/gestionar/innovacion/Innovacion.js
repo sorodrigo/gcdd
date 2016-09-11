@@ -33,17 +33,21 @@
                 }
             ];
 
-            this.editados = [this.profesores.length];
+            this.editando = [this.profesores.length];
             this.valoresOriginales = [this.profesores.length];
 
             this.edicion = function (item) {
-                this.editados[item.idProfesor] = true;
+                this.editando[item.idProfesor] = true;
                 this.valoresOriginales[item.idProfesor] = item.carga.proyectosInnovacion;
                 this.cambios++;
             };
 
+            this.aceptar = function (item) {
+                this.editando[item.idProfesor] = false;
+            };
+
             this.cancelar = function (item) {
-                this.editados[item.idProfesor] = false;
+                this.editando[item.idProfesor] = false;
                 item.carga.proyectosInnovacion = this.valoresOriginales[item.idProfesor];
                 this.cambios--;
             };
@@ -56,7 +60,7 @@
             var that = this;
             var init = function () {
                 for (var i = 0; i < that.profesores.length; i++){
-                    that.editados[i] = false;
+                    that.editando[i] = false;
                 }
             };
             init();

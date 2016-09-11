@@ -203,6 +203,7 @@ p.app-content-text{
     border-right: rgba(212, 212, 212, 0.5) solid 2px;
     margin: auto;
     overflow: scroll;
+    padding-top: 1em;
 }
 
 .app-content-textbox-big {
@@ -212,6 +213,8 @@ p.app-content-text{
     border-left: rgba(212, 212, 212, 0.5) solid 2px;
     border-right: rgba(212, 212, 212, 0.5) solid 2px;
     margin: auto;
+    padding-top: 1em;
+
 }
 
 .ellipsis {
@@ -286,8 +289,8 @@ p.app-content-text{
     text-align: center !important;
     border-bottom: solid 6px #62B0DE;
     min-height: 1.75em;
-
 }
+
 
 .tabla-subhead {
     font-weight: 600;
@@ -405,15 +408,11 @@ p.app-content-text{
     padding-top: 0.15em;
 }
 
-.glyphicon.glyphicon-remove:hover {
-    color: #d2d35c;
+.glyphicon.glyphicon-ok:hover {
+    color: #6bde3f;
 }
 
-.glyphicon.glyphicon-trash:hover {
-    color: rgba(255, 0, 0, 0.5);
-}
-
-.glyphicon.glyphicon-ban-circle:hover {
+.glyphicon.glyphicon-remove:hover , .glyphicon.glyphicon-trash:hover , .glyphicon.glyphicon-ban-circle:hover {
     color: rgba(255, 0, 0, 0.5);
 }
 
