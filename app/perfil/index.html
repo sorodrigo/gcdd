@@ -7,20 +7,6 @@
         <h3 class="text-center app-content-text"> Perfil de Usuario</h3>
 
         <div class="app-content-textbox">
-
-
-            <div class="text-right">
-                <div class="btn-group" uib-dropdown>
-                    <button id="single-button" type="button" class="ellipsis" uib-dropdown-toggle><span
-                            class="glyphicon glyphicon-option-horizontal"></span></button>
-                    <ul class="uib-dropdown-menu" id="modificar-perfil" aria-labelledby="single-button">
-                        <li>
-                            <a href ng-click="perfil.modificar()">Modificar Correo/Password</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
             <p class="app-content-text"><span class="app-content-text-subhead">Nombre</span>{{perfil.profesor.nombre}}
             </p>
 
@@ -67,7 +53,6 @@
         <div class="app-content-textbox-big">
             <div class="pure-g">
                 <div class="pure-u-sm-1 pure-u-md-1-2">
-                    <br>
 
                     <p class="app-content-text"><span class="app-content-text-subhead">Previsi&oacute;n</span><span
                             class="text-red">{{perfil.profesor.carga.prevision}}
@@ -113,7 +98,7 @@
 
                 <div class="pure-u-sm-1 pure-u-md-1-2" ng-controller="PieGraficoCtrl as pie">
                     <br>
-                    <div tooltip-placement="top" uib-tooltip="Prueba a hacer click en las leyendas." ng-click="pie.donutToPie()">
+                    <div tooltip-placement="top" uib-tooltip="Prueba a hacer click en las leyendas.">
                         <nvd3 options="pie.options" data="pie.data"></nvd3>
                     </div>
                 </div>

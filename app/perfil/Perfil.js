@@ -128,26 +128,5 @@
                     y: 6
                 }
             ];
-        }])
-
-        //Controller encargado del modal utilizado para modificar los datos del perfil de usuario
-        .controller('ModificarCtrl', ['$uibModalInstance', function ($uibModalInstance) {
-            this.profesor = {
-                correo: "john.appleseed@example.com",
-                password: "password"
-            };
-            this.correo = "";
-            this.password = "";
-            this.newPassword = "";
-            this.newPassword2 = "";
-
-            this.close = function () {
-                $uibModalInstance.dismiss('cancel');
-            };
-
-            this.guardar = function () {
-                alert(this.correo + ' ' + this.newPassword);
-                $uibModalInstance.close();
-            }
         }]);
 })();
