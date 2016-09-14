@@ -3,10 +3,10 @@
  */
 "use strict";
 
-(function (){
+(function () {
     angular.module('SGCD')
 
-        //Controller encargado de actualizar el correo del usuario y calcular la carga docente
+    //Controller encargado de actualizar el correo del usuario y calcular la carga docente
         .controller('PerfilCtrl', ['$uibModal', function ($uibModal) {
 
             this.profesor = {

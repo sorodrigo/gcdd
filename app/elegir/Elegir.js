@@ -7,7 +7,7 @@
 
     angular.module('SGCD')
 
-        //Directive encargada de cargar por medio de un elemento las tablas de las gestionar
+    //Directive encargada de cargar por medio de un elemento las tablas de las gestionar
         .directive('asignaturasTable', function () {
             return {
                 restrict: 'E',

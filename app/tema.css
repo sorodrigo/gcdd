@@ -30,19 +30,19 @@
     border: transparent;
 }
 
-.navbar-default .navbar-brand,.navbar-default .navbar-brand:hover {
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
     color: black;
 }
 
-.navbar-default .navbar-nav>li>a{
+.navbar-default .navbar-nav > li > a {
     color: black;
 }
 
-.navbar-default .navbar-toggle .icon-bar{
+.navbar-default .navbar-toggle .icon-bar {
     background-color: black;
 }
 
-.navbar-default .navbar-nav>li>a:focus{
+.navbar-default .navbar-nav > li > a:focus {
     color: white;
 }
 
@@ -179,7 +179,7 @@
     margin-right: 3.5%;
 }
 
-p.app-content-text{
+p.app-content-text {
     font-size: 11pt;
 }
 
@@ -290,7 +290,6 @@ p.app-content-text{
     border-bottom: solid 6px #62B0DE;
     min-height: 1.75em;
 }
-
 
 .tabla-subhead {
     font-weight: 600;
@@ -412,7 +411,7 @@ p.app-content-text{
     color: #6bde3f;
 }
 
-.glyphicon.glyphicon-remove:hover , .glyphicon.glyphicon-trash:hover , .glyphicon.glyphicon-ban-circle:hover {
+.glyphicon.glyphicon-remove:hover, .glyphicon.glyphicon-trash:hover, .glyphicon.glyphicon-ban-circle:hover {
     color: rgba(255, 0, 0, 0.5);
 }
 
@@ -429,7 +428,7 @@ p.app-content-text{
 
 /* Validacion de Formas */
 
-input.validar.ng-untouched{
+input.validar.ng-untouched {
     border: 1px solid #ccc !important;
 
 }
@@ -471,11 +470,11 @@ input.validar.ng-valid {
         font-size: 80%;
     }
 
-    .search-bar{
+    .search-bar {
         width: 85%;
     }
 
-    .hide-header{
+    .hide-header {
         display: none !important;
     }
 }

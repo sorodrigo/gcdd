@@ -6,9 +6,7 @@
 (function () {
 
 
-
     angular.module('SGCD')
-
 
 
         .controller('AsignaturasCtrl', ['$uibModal', '$scope', function ($uibModal, $scope) {
@@ -111,14 +109,14 @@
                     }
                 ],
                 'Ingenieria Computadores': [
-                {
-                    total: 0,
-                    asignaturas: []
-                },
-                {
-                    total: 0,
-                    asignaturas: []
-                },
+                    {
+                        total: 0,
+                        asignaturas: []
+                    },
+                    {
+                        total: 0,
+                        asignaturas: []
+                    },
                     {
                         total: 0,
                         asignaturas: []
@@ -127,7 +125,7 @@
                         total: 0,
                         asignaturas: []
                     }
-            ],
+                ],
                 'Master Web': [
                     {
                         total: 0,
@@ -155,7 +153,7 @@
                         asignaturas: []
                     }
                 ],
-                'Master Sistemas Distribuidos' : [
+                'Master Sistemas Distribuidos': [
                     {
                         total: 0,
                         asignaturas: []
@@ -168,16 +166,16 @@
             };
 
             this.eliminar = function (item, ano) {
-                for (var i = 0; i < this.cursos[this.actual][ano].asignaturas.length; i++){
-                    if (this.cursos[this.actual][ano].asignaturas[i].idAsignatura == item.idAsignatura){
+                for (var i = 0; i < this.cursos[this.actual][ano].asignaturas.length; i++) {
+                    if (this.cursos[this.actual][ano].asignaturas[i].idAsignatura == item.idAsignatura) {
                         var index = i;
                         break;
                     }
                 }
-                if(typeof(index) != 'undefined') {
+                if (typeof(index) != 'undefined') {
                     this.cursos[this.actual][ano].asignaturas.splice(index, 1);
                 }
-                    this.cambios = true;
+                this.cambios = true;
 
 
             };
@@ -191,32 +189,28 @@
                     controller: 'EditarAsignaturaCtrl as edicion',
                     size: 'lg',
                     resolve: {
-                        curso: function(){
+                        curso: function () {
                             return that.cursos[that.actual];
 
                         },
-                        asignaturaSeleccionada: function(){
+                        asignaturaSeleccionada: function () {
                             return angular.copy(asign);
                         },
-                        anoAsignatura: function (){
+                        anoAsignatura: function () {
                             return ano;
                         }
                     }
                 });
 
                 agregarModal.result.then(function (agregado) {
-                    if(agregado.versionAntigua.asignatura != null) {
+                    if (agregado.versionAntigua.asignatura != null) {
                         that.eliminar(agregado.versionAntigua.asignatura, agregado.versionAntigua.ano);
                         that.cambios = false;
                     }
-                        console.log(agregado.asignatura);
-                        that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
+                    console.log(agregado.asignatura);
+                    that.cursos[that.actual][agregado.ano].asignaturas.push(agregado.asignatura);
                 });
             };
-
-
-
-
 
 
         }])
@@ -234,12 +228,11 @@
 
             this.guardar = function () {
 
-                if(this.asignatura.idAsignatura == null)
-                {   //TODO
+                if (this.asignatura.idAsignatura == null) {   //TODO
                     console.log("API CREATE asignatura AQUI!!");
                     this.asignatura.idAsignatura = "placeholder";
                 }
-                else{
+                else {
                     //TODO
                     console.log("API EDIT asignatura AQUI!!");
                 }

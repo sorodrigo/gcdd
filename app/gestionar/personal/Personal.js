@@ -218,7 +218,7 @@
                 }
             ];
 
-            this.close = function() {
+            this.close = function () {
                 $uibModalInstance.dismiss('close');
             };
 

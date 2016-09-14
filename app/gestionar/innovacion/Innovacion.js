@@ -59,7 +59,7 @@
 
             var that = this;
             var init = function () {
-                for (var i = 0; i < that.profesores.length; i++){
+                for (var i = 0; i < that.profesores.length; i++) {
                     that.editando[i] = false;
                 }
             };

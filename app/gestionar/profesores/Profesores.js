@@ -79,13 +79,13 @@
             ];
 
             this.eliminar = function (item) {
-                for (var i = 0; i < this.profesores.length; i++){
-                    if (this.profesores[i].idProfesor == item.idProfesor){
+                for (var i = 0; i < this.profesores.length; i++) {
+                    if (this.profesores[i].idProfesor == item.idProfesor) {
                         var index = i;
                         break;
                     }
                 }
-                if(typeof(index) != 'undefined') {
+                if (typeof(index) != 'undefined') {
                     this.profesores.splice(index, 1);
                 }
                 this.cambios = true;
@@ -118,7 +118,7 @@
 
         }])
 
-        .controller('EditarProfesorCtrl',  ['$uibModalInstance', '$scope', 'profesorSeleccionado', function ($uibModalInstance, $scope, profesorSeleccionado) {
+        .controller('EditarProfesorCtrl', ['$uibModalInstance', '$scope', 'profesorSeleccionado', function ($uibModalInstance, $scope, profesorSeleccionado) {
 
             this.profesor = profesorSeleccionado;
 
@@ -144,12 +144,11 @@
 
             this.guardar = function () {
 
-                if(this.profesor.idProfesor == null)
-                {   //TODO
+                if (this.profesor.idProfesor == null) {   //TODO
                     console.log("API CREATE profesor AQUI!!");
                     this.profesor.idProfesor = "placeholder";
                 }
-                else{
+                else {
                     //TODO
                     console.log("API EDIT profesor AQUI!!");
                 }

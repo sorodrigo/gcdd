@@ -46,13 +46,13 @@
             ];
 
             this.eliminar = function (item) {
-                for (var i = 0; i < this.titulaciones.length; i++){
-                    if (this.titulaciones[i].idTitulacion == item.idTitulacion){
+                for (var i = 0; i < this.titulaciones.length; i++) {
+                    if (this.titulaciones[i].idTitulacion == item.idTitulacion) {
                         var index = i;
                         break;
                     }
                 }
-                if(typeof(index) != 'undefined') {
+                if (typeof(index) != 'undefined') {
                     this.titulaciones.splice(index, 1);
                 }
                 this.cambios = true;
@@ -101,12 +101,11 @@
 
             this.guardar = function () {
 
-                if(this.titulacion.idTitulacion == null)
-                {   //TODO
+                if (this.titulacion.idTitulacion == null) {   //TODO
                     console.log("API CREATE titulacion AQUI!!");
                     this.titulacion.idTitulacion = "placeholder";
                 }
-                else{
+                else {
                     //TODO
                     console.log("API EDIT titulacion AQUI!!");
                 }

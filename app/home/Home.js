@@ -3,10 +3,10 @@
  */
 "use strict";
 
-(function() {
+(function () {
     angular.module('Home')
 
-        //Controller encargado de lanzar el login modal.
+    //Controller encargado de lanzar el login modal.
         .controller('HomeCtrl', ['$uibModal', function ($uibModal) {
 
             this.modal = function () {
