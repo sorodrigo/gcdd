@@ -51,7 +51,7 @@
           data: '=data',
           actual: '=actual'
         },
-        link: function (scope, element, attributes, ctrl) {
+        link: function (scope) {
           scope.actual = scope.data[0];
 
           // Actualiza el valor de la titulacion seleccionada

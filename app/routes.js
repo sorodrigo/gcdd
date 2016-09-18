@@ -6,12 +6,11 @@
 angular.module('SGCD')
 
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
     $routeProvider.when('/elegir', {
-        templateUrl: './elegir/index.html',
-        controller: 'ElegirCtrl',
-        controllerAs: 'elegir'
-      })
+      templateUrl: './elegir/index.html',
+      controller: 'ElegirCtrl',
+      controllerAs: 'elegir'
+    })
 
       .when('/perfil', {
         templateUrl: './perfil/index.html',

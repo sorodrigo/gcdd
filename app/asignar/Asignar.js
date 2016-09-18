@@ -8,7 +8,6 @@
 
   // Controller encargado de cargar y manejar la tabla de las gestionar elegidas
     .controller('AsignarCtrl', [function () {
-
       var self = this;
       // Diccionario que contiene las titulaciones, sus cursos, y las gestionar de dichos cursos
       self.cursos = {
@@ -138,7 +137,6 @@
     }])
 
     .controller('EditarGrupoCtrl', ['$routeParams', function ($routeParams) {
-
       var self = this;
 
       // Variable de control, cuando hay cambios se habilita la opcion de guardar.
@@ -287,13 +285,13 @@
       };
 
       self.numGrupos = function () {
-        var titul = this.cursos[this.titulacion];
+        var titul = self.cursos[self.titulacion];
         var ano;
         var asig;
         for (ano = 0; ano < titul.length; ano++) {
           for (asig = 0; asig < titul[ano].asignaturas.length; asig++) {
-            if (titul[ano].asignaturas[asig].nombre === this.asignatura) {
-              if (this.tipo === 'Teoría') {
+            if (titul[ano].asignaturas[asig].nombre === self.asignatura) {
+              if (self.tipo === 'Teoría') {
                 return titul[ano].asignaturas[asig].num_grupos;
               }
 
@@ -301,7 +299,8 @@
             }
           }
         }
-      }
+        return 0;
+      };
 
       self.seleccionar = '';
       self.profesores = [
@@ -343,7 +342,6 @@
         }
       ];
       self.seleccionado = function (item, model, label, profesor) {
-
         var index = self.elecciones.indexOf(profesor);
         self.elecciones[index] = item;
         self.seleccionar = '';
