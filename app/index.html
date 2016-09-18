@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="SGCD">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGCD</title>
@@ -54,18 +55,18 @@
         <div class="collapse navbar-collapse" uib-collapse="app.nav.isCollapsed">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#/elegir" ng-click="app.nav.collapse(true)">Elegir Asignaturas</a></li>
-                    <li><a href="#/asignar" ng-click="app.nav.collapse(true)" ng-if="app.usuario.admin">Asignar Asignaturas</a></li>
+                    <li><a href="/elegir" ng-click="app.nav.collapse(true)">Elegir Asignaturas</a></li>
+                    <li><a href="/asignar" ng-click="app.nav.collapse(true)" ng-if="app.usuario.admin">Asignar Asignaturas</a></li>
                     <li uib-dropdown>
                         <a href uib-dropdown-toggle ng-if="app.usuario.admin">Gestionar</a>
                         <ul class="uib-dropdown-menu">
-                            <li><a href="#/titulaciones" ng-click="app.nav.collapse(true)">Titulaciones</a></li>
-                            <li><a href="#/asignaturas" ng-click="app.nav.collapse(true)">Asignaturas</a></li>
-                            <li><a href="#/profesores" ng-click="app.nav.collapse(true)">Profesores</a></li>
-                            <li><a href="#/cargos" ng-click="app.nav.collapse(true)">Cargos</a></li>
-                            <li><a href="#/innovacion" ng-click="app.nav.collapse(true)">Proyectos de Innovaci&oacute;n</a></li>
-                            <li> <a href="#/trabajos" ng-click="app.nav.collapse(true)">Trabajos Finales</a></li>
-                            <li><a href="#/personal" ng-click="app.nav.collapse(true)">Personal</a></li>
+                            <li><a href="/titulaciones" ng-click="app.nav.collapse(true)">Titulaciones</a></li>
+                            <li><a href="/asignaturas" ng-click="app.nav.collapse(true)">Asignaturas</a></li>
+                            <li><a href="/profesores" ng-click="app.nav.collapse(true)">Profesores</a></li>
+                            <li><a href="/cargos" ng-click="app.nav.collapse(true)">Cargos</a></li>
+                            <li><a href="/innovacion" ng-click="app.nav.collapse(true)">Proyectos de Innovaci&oacute;n</a></li>
+                            <li> <a href="/trabajos" ng-click="app.nav.collapse(true)">Trabajos Finales</a></li>
+                            <li><a href="/personal" ng-click="app.nav.collapse(true)">Personal</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -73,7 +74,7 @@
                     <li uib-dropdown>
                         <a href uib-dropdown-toggle>{{app.usuario.nombre + " " + app.usuario.apellidos}}</a>
                         <ul class="uib-dropdown-menu">
-                            <li><a href="#/perfil" ng-click="app.nav.collapse()">Perfil <span class="glyphicon glyphicon-user"></span></a>
+                            <li><a href="/perfil" ng-click="app.nav.collapse()">Perfil <span class="glyphicon glyphicon-user"></span></a>
                             </li>
                             <li class="divider"></li>
                             <li><a href ng-click="app.nav.collapse()">Logout <span class="glyphicon glyphicon-off"></span></a></li>

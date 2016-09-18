@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 5,
+    "sourceType": "module"
+  },
+  "extends": [
+    "airbnb-base/legacy",
+    "angular"
+  ],
+  "rules": {
+    "no-console": ["error", { "allow": [ "warn", "error", "info" ] }],
+    "no-param-reassign": ["warn", { "props": false }],
+    "func-names": ["error", "never"],
+    "brace-style": ["warn", "stroustrup"],
+    "no-trailing-spaces": ["warn", { "skipBlankLines": true }],
+    "no-plusplus": ["off"],
+    "comma-dangle": ["error", "never" ],
+    "dot-notation": ["warn"],
+    "angular/di": [2, "array"],
+    "angular/controller-name": [1, "/[A-Z].*Ctrl/"],
+    "angular/controller-as-vm": [1, "self"]
+  }
+}
