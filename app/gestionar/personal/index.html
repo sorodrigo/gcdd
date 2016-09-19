@@ -6,7 +6,7 @@
 
 
 <div class="pure-g">
-    <div class="pure-u-3-5">
+    <div class="pure-u-1 pure-u-md-3-5">
         <div class="pure-g container-fluid">
             <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-head hide-header filaPersonal">
                 <li>Equivalencia</li>
@@ -20,7 +20,8 @@
 
 <div class="pure-g container-fluid">
     <div class="pure-u-1 pure-u-md-3-5">
-        <div class="pure-g container-fluid" ng-repeat="categoriaConDedicacion in personalCtrl.personal">
+        <div class="pure-g container-fluid"
+             ng-repeat="categoriaConDedicacion in personalCtrl.personal">
             <ul class="pure-u-1-2 pure-u-md-1 pure-u-lg-1 fila-responsive tabla-subhead filaPersonal">
                 <li>Equivalencia</li>
                 <li>Categoría</li>
@@ -33,7 +34,8 @@
                 <li>{{categoriaConDedicacion.dedicacion.equivalencia}}</li>
                 <li>{{categoriaConDedicacion.categoria.categoria}}</li>
                 <li>{{categoriaConDedicacion.numero}}</li>
-                <li>{{(categoriaConDedicacion.dedicacion.equivalencia * categoriaConDedicacion.numero | number:2)}}
+                <li>{{(categoriaConDedicacion.dedicacion.equivalencia *
+                    categoriaConDedicacion.numero | number:2)}}
 
                     <div class="pull-right">
                         <a class="btn info"
@@ -46,8 +48,7 @@
         </div>
     </div>
 
-
-    <div class="pure-u-1 pure-u-md-2-5 separator">
+    <div class="pure-u-1 pure-u-md-1-3 separator">
 
         <div class="pure-g container-fluid resumen-personal">
 
