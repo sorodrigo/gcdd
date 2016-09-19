@@ -3,7 +3,6 @@ var path = require('path');
 var indexPath = path.join(process.cwd(), 'app/index.html');
 module.exports = function (app) {
 
-  /* GET home page. */
   app.get('*', function (req, res) {
     res.sendFile(indexPath);
   });
