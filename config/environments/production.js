@@ -1,6 +1,6 @@
 var path = require('path');
 
-var indexPath = path.join(process.cwd(), '/public/app/home/index.html');
+var indexPath = path.join(process.cwd(), '/app/home/index.html');
 module.exports = function (app) {
 
   app.get('*', function (req, res) {

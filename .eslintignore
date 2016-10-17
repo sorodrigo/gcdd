@@ -1,1 +1,4 @@
 app/vendor/**/*.js
+config/*
+models/*
+server.js

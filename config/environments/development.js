@@ -1,12 +1,12 @@
 var path = require('path');
-var logger = require('morgan');
+var morgan = require('morgan');
 var PrettyError = require('pretty-error');
 
 var indexPath = path.join(process.cwd(), 'app/index.html');
 module.exports = function (app) {
 
   // Logs
-  app.use(logger('dev'));
+  app.use(morgan('dev'));
 
 // Error handling
   const pe = new PrettyError();
